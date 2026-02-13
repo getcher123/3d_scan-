@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Услуги 3D-сканирования</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(19, 91, 236, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(19, 91, 236, 0.05) 1px, transparent 1px);
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(19, 91, 236, 0.15) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display transition-colors duration-300 antialiased selection:bg-primary selection:text-white">
+<nav class="fixed w-full z-50 top-0 start-0 border-b border-white/10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6 py-4">
+<a class="flex items-center space-x-2 rtl:space-x-reverse group" href="index.html">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+<span class="material-icons text-xl">view_in_ar</span>
+</div>
+<span class="self-center text-xl font-bold whitespace-nowrap tracking-tight">Voxel<span class="text-primary">Scan</span></span>
+</a>
+<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+<button class="text-white bg-primary hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all hover:shadow-[0_0_15px_rgba(19,91,236,0.5)]" type="button">
+                    Узнать стоимость
+                </button>
+<button class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" data-collapse-toggle="navbar-sticky" type="button">
+<span class="sr-only">Открыть меню</span>
+<span class="material-icons">menu</span>
+</button>
+</div>
+<div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+<ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+<li>
+<a aria-current="page" class="block py-2 px-3 text-white bg-primary rounded md:bg-transparent md:text-primary md:p-0" href="index.html">Услуги</a>
+</li>
+<li>
+<a class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transition-colors" href="workflow-portfolio.html">Портфолио</a>
+</li>
+<li>
+<a class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transition-colors" href="workflow-portfolio.html">О нас</a>
+</li>
+<li>
+<a class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 transition-colors" href="advantages-contact.html">Контакты</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden grid-bg">
+<div class="absolute inset-0 z-0 bg-background-light dark:bg-background-dark opacity-90"></div>
+<div class="absolute inset-0 z-0 hero-glow"></div>
+<div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider w-fit">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                        Высокоточное сканирование
+                    </div>
+<h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-gray-900 dark:text-white">
+                        3D-сканирование и печать любой <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">сложности</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+                        Профессиональные услуги оцифровки для музеев, кино и промышленности. Захват реальности с точностью до <span class="text-primary font-bold">0,05 мм</span>.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary hover:bg-blue-600 text-white font-medium px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-all hover:translate-y-[-2px] hover:shadow-[0_4px_20px_rgba(19,91,236,0.4)]">
+<span>Получить консультацию</span>
+<span class="material-icons text-sm">arrow_forward</span>
+</button>
+<button class="border border-gray-300 dark:border-gray-700 hover:border-primary text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary font-medium px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-all bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+<span class="material-icons text-sm">folder_open</span>
+<span>Смотреть портфолио</span>
+</button>
+</div>
+<div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200 dark:border-gray-800/50 mt-8">
+<div>
+<p class="text-3xl font-bold text-gray-900 dark:text-white">500+</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">проектов</p>
+</div>
+<div>
+<p class="text-3xl font-bold text-gray-900 dark:text-white">0.02<span class="text-lg text-primary">мм</span></p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">точность</p>
+</div>
+<div>
+<p class="text-3xl font-bold text-gray-900 dark:text-white">24<span class="text-lg text-primary">ч</span></p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">выполнение</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-900">
+<div class="aspect-[4/5] relative">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&amp;w=2940&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay pointer-events-none" data-alt="Abstract digital wireframe mesh texture"></div>
+<img alt="Крупный план лазерного сканирования металлической детали двигателя роботизированной рукой" class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" data-alt="Close up of a robotic arm laser scanning a metallic engine component" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiTSCCAZK30KZrz8UKILabhIwlMCeVRKnYXZ5PkP9oz9vPR35-eEoGwUh5u5leBcHe4qlimkDZ5wuCoVec7SKdJN50VeKYv2Ym6m223zGH8jyIiIM8Dd770wezr9YETi2RW5x6I_6O_WfiGO1Q9Q4_8j2GytF4tjL3HDFneDkKBTzvC-KZfIlvV3x-2VqPUoeevVscmTMz5SIe2KPWGjkypsjFJQ01_MjyPH9JUTrylj8S3Ly7e6udSj8ouw_IfIH1HqhN5AVVXg"/>
+<div class="absolute top-1/2 left-0 right-0 h-0.5 bg-primary shadow-[0_0_20px_#135bec] opacity-60 animate-pulse"></div>
+<div class="absolute bottom-6 left-6 right-6 p-4 bg-background-dark/80 backdrop-blur-md rounded-lg border border-white/10 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons animate-spin" style="animation-duration: 3s;">settings</span>
+</div>
+<div>
+<p class="text-white text-sm font-semibold">Идет сканирование...</p>
+<div class="w-full bg-gray-700 rounded-full h-1.5 mt-2 w-32">
+<div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white dark:bg-background-dark relative border-t border-gray-100 dark:border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Наши основные услуги</h2>
+<p class="text-gray-600 dark:text-gray-400 max-w-xl">
+                        Комплексные 3D-решения для реверс-инжиниринга, контроля качества и цифровой архивации.
+                    </p>
+</div>
+<a class="text-primary hover:text-blue-400 font-medium flex items-center gap-1 group" href="#">
+                    Смотреть прайс-лист 
+                    <span class="material-icons text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group relative bg-background-light dark:bg-[#151c2a] rounded-xl p-6 border border-gray-200 dark:border-white/5 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-primary">
+<span class="material-icons">view_in_ar</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">3D-сканирование в офисе</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6 min-h-[40px]">Высокоточное сканирование малых и средних объектов в нашей лаборатории.</p>
+<div class="flex items-center justify-between mt-auto border-t border-gray-200 dark:border-white/10 pt-4">
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Цена от</span>
+<span class="text-lg font-bold text-primary">3,000 ₽</span>
+</div>
+<div class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-icons text-sm">add</span>
+</div>
+</div>
+</div>
+<div class="group relative bg-background-light dark:bg-[#151c2a] rounded-xl p-6 border border-gray-200 dark:border-white/5 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-primary">
+<span class="material-icons">location_on</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Выездное 3D-сканирование</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6 min-h-[40px]">Мы приедем к вам для сканирования крупных объектов, зданий или неподвижных предметов.</p>
+<div class="flex items-center justify-between mt-auto border-t border-gray-200 dark:border-white/10 pt-4">
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Цена от</span>
+<span class="text-lg font-bold text-primary">12,000 ₽</span>
+</div>
+<div class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-icons text-sm">add</span>
+</div>
+</div>
+</div>
+<div class="group relative bg-background-light dark:bg-[#151c2a] rounded-xl p-6 border border-gray-200 dark:border-white/5 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-primary">
+<span class="material-icons">layers</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">3D-печать</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6 min-h-[40px]">Технологии печати SLA, SLS и FDM для прототипов и деталей.</p>
+<div class="flex items-center justify-between mt-auto border-t border-gray-200 dark:border-white/10 pt-4">
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Цена</span>
+<span class="text-lg font-bold text-primary">По запросу</span>
+</div>
+<div class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-icons text-sm">add</span>
+</div>
+</div>
+</div>
+<div class="group relative bg-background-light dark:bg-[#151c2a] rounded-xl p-6 border border-gray-200 dark:border-white/5 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300 text-primary">
+<span class="material-icons">computer</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Постобработка</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6 min-h-[40px]">CAD-моделирование, очистка и подготовка файлов к производству.</p>
+<div class="flex items-center justify-between mt-auto border-t border-gray-200 dark:border-white/10 pt-4">
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Оплата</span>
+<span class="text-lg font-bold text-primary">Консультация</span>
+</div>
+<div class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-400 group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-icons text-sm">add</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-white/10 py-12">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center space-x-2">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-icons text-sm">view_in_ar</span>
+</div>
+<span class="text-lg font-bold dark:text-white">Voxel<span class="text-primary">Scan</span></span>
+</div>
+<div class="text-gray-500 text-sm">
+                    © 2023 VoxelScan. Все права защищены.
+                </div>
+<div class="flex space-x-6">
+<a class="text-gray-400 hover:text-primary" href="#"><span class="sr-only">Facebook</span><svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+<a class="text-gray-400 hover:text-primary" href="#"><span class="sr-only">Instagram</span><svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468.99c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

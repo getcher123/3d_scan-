@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Процесс и Портфолио</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+              "surface-dark": "#161e2d",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            backgroundImage: {
+              'mesh-grid': "linear-gradient(to right, #135bec1a 1px, transparent 1px), linear-gradient(to bottom, #135bec1a 1px, transparent 1px)",
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .workflow-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #135bec 0%, #135bec 50%, #2d3748 50%, #2d3748 100%);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            transition: background-position 1s ease-out;
+        }
+        .workflow-group:hover .workflow-line {
+            background-position: 0 0;
+        }
+        .mesh-overlay {
+            background-size: 20px 20px;
+            mask-image: linear-gradient(to bottom, transparent, black);
+        }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .slider-image-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            z-index: 2;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #135bec;
+            z-index: 10;
+            cursor: col-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-knob {
+            width: 32px;
+            height: 32px;
+            background: #135bec;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(19, 91, 236, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white font-display antialiased">
+<nav class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-white/10">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold text-lg">3D</div>
+<span class="font-bold text-lg tracking-tight">SCAN.LAB</span>
+</div>
+<div class="hidden md:flex gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+<a class="hover:text-primary transition-colors" href="index.html">Услуги</a>
+<a class="text-primary" href="workflow-portfolio.html">Процесс</a>
+<a class="hover:text-primary transition-colors" href="workflow-portfolio.html">Портфолио</a>
+<a class="hover:text-primary transition-colors" href="advantages-contact.html">Контакты</a>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded text-sm font-semibold transition-colors">
+                Рассчитать стоимость
+            </button>
+</div>
+</nav>
+<main class="pt-24 pb-20 space-y-32">
+<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Работаем с 2015 года
+                </div>
+<h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                    Промышленная точность для <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">цифрового сохранения.</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                    Мы объединяем физический и цифровой миры, используя технологии сканирования метрологического класса. Нам доверяют национальные музеи, киностудии и промышленные инженеры за точность до долей миллиметра.
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="px-4 py-3 rounded bg-surface-dark border border-white/5 flex items-center gap-3">
+<span class="material-icons-round text-primary text-xl">architecture</span>
+<div class="flex flex-col">
+<span class="text-xs text-slate-400 uppercase tracking-wide">Точность</span>
+<span class="font-bold">До 0.05мм</span>
+</div>
+</div>
+<div class="px-4 py-3 rounded bg-surface-dark border border-white/5 flex items-center gap-3">
+<span class="material-icons-round text-primary text-xl">layers</span>
+<div class="flex flex-col">
+<span class="text-xs text-slate-400 uppercase tracking-wide">Разрешение</span>
+<span class="font-bold">8K Текстуры</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+<div class="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-surface-dark aspect-[4/3]">
+<img alt="Close up of a robotic arm performing a structured light 3D scan on a mechanical part" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0JxtarSvNPQcX7g9TzN4vORmwaGh8zrz2zbxFaZmZ6bjnt4A8Cpasvjz6f32Nmg_8WQQnGGV6uRzP2XFzQqcBdEG4Ay22Ulwto7HIDVwzeHJ0eeDBD2lcif5HzOhIBJ-nk9myBEyEEyL10TUx2xn-WU5v-0tlYI3Bl7sGnKDi30exzawsRsbzon8lX7mh0TVsw096294OzyskW65TavXbK8QBHpSq7YUFXLn7VYQ82ZblGO0oJXyScHnrzmRjVKT62YW2Q2rDVQ"/>
+<div class="absolute inset-0 pointer-events-none p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="text-xs font-mono text-primary bg-black/50 backdrop-blur px-2 py-1 rounded border border-primary/30">
+                                РЕЖИМ_СКАНИРОВАНИЯ: АКТИВЕН
+                            </div>
+<span class="material-icons-round text-primary/80 animate-spin text-2xl">all_inclusive</span>
+</div>
+<div class="absolute inset-0 bg-mesh-grid mesh-overlay opacity-30"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-primary/40 rounded-full flex items-center justify-center">
+<div class="w-1 h-1 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full bg-surface-dark border-y border-white/5 py-24 workflow-group">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16 text-center">
+<h2 class="text-3xl font-bold mb-4">Наш процесс</h2>
+<p class="text-slate-400 max-w-2xl mx-auto">Прозрачный, линейный рабочий процесс, обеспечивающий целостность данных от первой консультации до финальной передачи файлов.</p>
+</div>
+<div class="relative pt-8 pb-12 overflow-x-auto">
+<div class="absolute top-[4.5rem] left-0 w-full h-[2px] bg-slate-700/50 hidden md:block"></div>
+<div class="absolute top-[4.5rem] left-0 w-full h-[2px] bg-primary scale-x-0 origin-left transition-transform duration-1000 group-hover:scale-x-100 hidden md:block"></div>
+<div class="flex md:grid md:grid-cols-7 gap-8 min-w-[800px] md:min-w-0">
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">manage_search</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2">Анализ ТЗ</h3>
+<p class="text-xs text-slate-400">Определение объема и тех. требований.</p>
+</div>
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">description</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2">Договор</h3>
+<p class="text-xs text-slate-400">Соглашение SLA и график работ.</p>
+</div>
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">center_focus_strong</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2 text-primary">Сканирование</h3>
+<p class="text-xs text-slate-400">Сбор данных на объекте.</p>
+</div>
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">memory</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2">Обработка данных</h3>
+<p class="text-xs text-slate-400">Регистрация облака точек.</p>
+</div>
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">view_in_ar</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2">3D-моделирование</h3>
+<p class="text-xs text-slate-400">Очистка меша и ретопология.</p>
+</div>
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">fact_check</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2">Контроль качества</h3>
+<p class="text-xs text-slate-400">Проверка на соответствие исходнику.</p>
+</div>
+<div class="relative flex flex-col items-center text-center group/step">
+<div class="w-12 h-12 rounded-full bg-background-dark border-2 border-slate-600 group-hover/step:border-primary group-hover/step:bg-primary group-hover/step:text-white transition-all duration-300 flex items-center justify-center z-10 mb-6 shadow-lg">
+<span class="material-icons-round text-xl">file_download</span>
+</div>
+<h3 class="text-sm font-bold uppercase tracking-wide mb-2">Выдача файлов</h3>
+<p class="text-xs text-slate-400">Безопасная передача данных.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="text-3xl font-bold mb-2">Избранные проекты</h2>
+<p class="text-slate-400">Сравнение физических артефактов с их цифровыми двойниками.</p>
+</div>
+<div class="hidden md:flex gap-2">
+<button class="px-4 py-2 rounded border border-primary text-primary bg-primary/10 text-sm font-medium">Музей</button>
+<button class="px-4 py-2 rounded border border-white/10 hover:border-white/30 text-slate-400 text-sm font-medium transition-colors">Промышленность</button>
+<button class="px-4 py-2 rounded border border-white/10 hover:border-white/30 text-slate-400 text-sm font-medium transition-colors">Кино</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="md:col-span-2 group relative bg-surface-dark rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-300">
+<div class="slider-container h-[400px] w-full relative">
+<img alt="Blue wireframe digital model of a classical archway structure on dark background" class="absolute inset-0 w-full h-full object-cover filter brightness-125 contrast-125 saturate-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHykhRVNx8pSpqSynfGk8HtwUcd_k3XpmIHwlOydy6dEX3J06M6xc7Nwefa-5ysIphHVO8vLlzvin0sZvmMT8wNEO_wB3UDIj-NAzlr99JQmpjiGtidy6c8SWZ7EfnzxjL-0DvEygzZKXPkB-oIcpCOROA85bX2TlQ4glRl8g1nzMfsTLDs_uSl-3a-ejztYITHxGLZ5t6aP55MPJVi03QNh-50bs21UluY0r1CUeWg091H46fk3wWwhe_BbZD_OQlGunLjmh7Dg"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+<div class="slider-image-before">
+<img alt="Photograph of the Triumphal Arch in Paris against a clear sky" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRoUhhOFoNEKefGj6rSozsEomCcOolxB_eyFK7oTYNtLzNYqwHdoAjbTs7H0WwE3u42pRkVwwDdMZM3HS4j6fQskmesIt3tFF5o52cmDJfopG6nfAUlKyr9CbhFQbN2iV4PQzvyDhEInpIf2YrBQ1brAtUsfDHVREhSxRBQ91Dq-pHOSArEk-xzhChr2VXnuLGtho9ct-WVJP25UwMDg0bdoGcIwT77IYNDlLcsrGbgG-0ZQJ2oSfl-RtYRv9zBLS5m4djopMj7g"/>
+</div>
+<div class="slider-handle">
+<div class="slider-knob">
+<span class="material-icons-round text-white text-sm">code</span>
+</div>
+</div>
+<div class="absolute top-4 left-4 bg-black/60 backdrop-blur px-2 py-1 rounded text-xs font-mono text-white">ФИЗИЧЕСКИЙ</div>
+<div class="absolute top-4 right-4 bg-primary/80 backdrop-blur px-2 py-1 rounded text-xs font-mono text-white">ЦИФРОВОЙ МЕШ</div>
+</div>
+<div class="p-6">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-xl font-bold mb-1">Реставрация Триумфальных ворот</h3>
+<p class="text-sm text-slate-400">Крупномасштабная фотограмметрия + LiDAR</p>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] uppercase font-bold tracking-wide text-slate-300">LiDAR</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] uppercase font-bold tracking-wide text-slate-300">Obj</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-1 group relative bg-surface-dark rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-300 flex flex-col">
+<div class="slider-container h-[300px] md:h-full w-full relative">
+<img alt="Detailed 3D mesh rendering of a classical bust sculpture" class="absolute inset-0 w-full h-full object-cover filter contrast-125 hue-rotate-180" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXZOcFU8csmn8VkAWbXu1F7b2mSyYVYUxZNsqaA6JkBvw4V3XPqNwYXxT7pAqJiX86SZcTPChBjNsvsm60XbtA7sefSPnV2JJYag5LZQQjGcPWWPyxP1QLJocyUO3zz503N-5d2ffFaA8NbzybE5Rb17RPM0rs6wcDRpVMDI9ABdzSDNIW1-f4-1rFvXrNoOBMgmqtCCpf-_Mq6IkCA_hCL6wCx21YK3QF0ZA-_R-fDQaLmR5H5_h2ZZIxV1cm0jlOHDS5KDz7ng"/>
+<div class="slider-image-before" style="clip-path: polygon(0 0, 35% 0, 35% 100%, 0 100%);">
+<img alt="Marble bust of a Roman emperor in a museum setting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoxteWB32R2Rmh0eXtTJvkZXQRsltmiw07lKGXprHcJRhJadlczwZ2tIRTk6FLF73yfkj5Dn_CT3kh43ER64HhJ984-Z71JjX9lJYSMINo6ANUqumvsb_cIgKMb2pZV8vx4ZkC3dP_Gkz9LbohHvD5I8q5pzBgQ3UKGt3FjylpkthaoRfBlJAkpmcdfgLLOnyXhwy7cDHeHzsJM1qdarw9N0lM1fzbBzkZT0cXglS76_7FhJn5kP0FqePS347I9nlVOZ7Klw8zSg"/>
+</div>
+<div class="slider-handle" style="left: 35%;">
+<div class="slider-knob">
+<span class="material-icons-round text-white text-sm">compare_arrows</span>
+</div>
+</div>
+</div>
+<div class="p-6 mt-auto bg-surface-dark border-t border-white/5">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-lg font-bold mb-1">ГМИИ им. Пушкина</h3>
+<p class="text-xs text-slate-400">Оцифровка архива</p>
+</div>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] uppercase font-bold tracking-wide text-slate-300">0.05мм</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-1 group relative bg-surface-dark rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-300">
+<div class="h-[240px] w-full relative overflow-hidden">
+<img alt="Abstract complex 3D surface topology map with height gradients" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFQY8jzThjhhNd0XZkzcVk26JoFAmnBdrzRiz3QC9lP8SG_2fI_O3a8ZY8z3Pb1ntmcdinff7gYGLLp-lGYLlAYisSG-BzHc30NgzuiKAqiSJfAuK7BgWDVJLMD3MuZV--2lfcYClLXPi96NSy-JzSS-ryMoXRB0jepWCB8EZJ-ANV98RDMHBYeKy3Yto5V03xQQxvLQc8a0xa-g1agvQk09l5gSj0Hnrtn7I1jHSU3cu3xRne9JNLx77RHZQ_2j8KvnOMS-o8wQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dark to-transparent"></div>
+</div>
+<div class="p-6 relative -mt-12">
+<div class="bg-background-dark p-4 rounded-lg border border-white/10 shadow-lg">
+<h3 class="text-lg font-bold mb-1">Реверс-инжиниринг турбины</h3>
+<p class="text-xs text-slate-400 mb-3">Структурированный подсвет</p>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-primary/20 text-primary rounded text-[10px] uppercase font-bold tracking-wide">STEP</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] uppercase font-bold tracking-wide text-slate-300">CAD</span>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 group relative bg-surface-dark rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors duration-300 flex">
+<div class="w-1/2 relative h-[240px] md:h-auto">
+<img alt="Digital topographic map of terrain glowing on a dark background" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA52nbP9M40UapPSoWLBXF7EGqc3fqlJZSq-Lxs7Wb1yEseWUfyubdNAcpgUyKC6j4MpSE7liEw7ZJJWlajnjj_HGtwK51eMxeOmg5ZJfvxq0LgoEW77qf8HoVHuPOIxC-L8e-uV7p79-CZhGQ5jtf3aWUth34fRoi8SqG5wJlt0SPzlfnGRRabcnXLxG33G31gfxSx0zhPTROtjCKG4yp4-TFdyKRk5EhpchiOgfV_Q4BdIJtxsidegkMVMNvxc-aWrhW1dK6TpQ"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+</div>
+<div class="w-1/2 p-6 md:p-8 flex flex-col justify-center">
+<div class="mb-4">
+<span class="text-primary text-xs font-bold tracking-widest uppercase mb-2 block">Картография местности</span>
+<h3 class="text-2xl font-bold mb-2">Альпийская съемка</h3>
+<p class="text-sm text-slate-400">Аэрофотограмметрия для геологической съемки площадью 12 км².</p>
+</div>
+<div class="flex gap-3 mt-auto">
+<div class="text-center">
+<span class="block text-xl font-bold text-white">12км²</span>
+<span class="text-[10px] text-slate-500 uppercase">Покрытие</span>
+</div>
+<div class="w-px h-8 bg-white/10"></div>
+<div class="text-center">
+<span class="block text-xl font-bold text-white">4см</span>
+<span class="text-[10px] text-slate-500 uppercase">GSD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="inline-flex items-center gap-2 text-primary font-semibold hover:text-white transition-colors group">
+                    Смотреть всё портфолио 
+                    <span class="material-icons-round text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<footer class="border-t border-white/10 bg-surface-dark py-12">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-slate-700 rounded flex items-center justify-center text-white font-bold text-xs">3D</div>
+<span class="font-bold text-md tracking-tight text-slate-400">SCAN.LAB</span>
+</div>
+<p class="text-xs text-slate-500">© 2023 ScanLab. Все права защищены.</p>
+</div>
+</footer>
+
+</body></html>
