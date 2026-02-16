@@ -1,0 +1,305 @@
+<!doctype html>
+<html class="dark" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты | SCAN.LAB</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="assets/tailwind-config.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+
+  <body data-page="contacts" class="bg-background-dark text-white font-body antialiased selection:bg-primary selection:text-white">
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
+      <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
+          <div
+            class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]"
+          >
+            <span class="material-symbols-outlined text-primary">deployed_code</span>
+          </div>
+          <span class="font-display font-bold tracking-tight text-white text-lg"
+            >SCAN<span class="text-primary">.LAB</span></span
+          >
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Основная навигация">
+          <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+          <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+          <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+          <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="contacts.html#contact-form"
+            class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex"
+          >
+            Рассчитать стоимость
+          </a>
+          <button
+            data-menu-button
+            type="button"
+            class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+          >
+            <span class="material-icons-round">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div data-menu class="hidden md:hidden border-t border-white/10">
+        <nav class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300" aria-label="Мобильная навигация">
+          <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+          <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+          <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+          <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+          <a
+            href="contacts.html#contact-form"
+            class="ui-btn ui-btn--primary ui-btn--sm mt-2"
+          >
+            Рассчитать стоимость
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-16">
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-mesh-grid bg-[length:24px_24px] opacity-25"></div>
+        <div class="absolute -top-40 left-16 w-[520px] h-[520px] bg-primary/10 blur-[160px] rounded-full"></div>
+        <div class="absolute -bottom-40 right-16 w-[520px] h-[520px] bg-blue-400/10 blur-[160px] rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 py-16">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+            <div class="space-y-10">
+              <div>
+                <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">Связаться с нами</h1>
+                <p class="text-slate-300 text-lg leading-relaxed">
+                  Оставьте заявку на расчет, или напишите нам напрямую. Ответим в течение 24 часов.
+                </p>
+              </div>
+
+              <div class="space-y-6">
+                <a class="flex items-start group" href="tel:+72345678900" aria-label="Позвонить">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center mr-6 group-hover:bg-primary group-hover:border-primary transition-colors shadow-lg"
+                  >
+                    <span class="material-icons text-slate-200 group-hover:text-white">phone_in_talk</span>
+                  </div>
+                  <div>
+                    <span class="block text-xs text-slate-500 uppercase font-semibold tracking-wider mb-1">Телефон</span>
+                    <span class="text-xl text-white font-medium group-hover:text-primary transition-colors">+7 234 567 8900</span>
+                  </div>
+                </a>
+
+                <a class="flex items-start group" href="mailto:hello@scanlab.example" aria-label="Написать email">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center mr-6 group-hover:bg-primary group-hover:border-primary transition-colors shadow-lg"
+                  >
+                    <span class="material-icons text-slate-200 group-hover:text-white">mark_email_unread</span>
+                  </div>
+                  <div>
+                    <span class="block text-xs text-slate-500 uppercase font-semibold tracking-wider mb-1">Email</span>
+                    <span class="text-xl text-white font-medium group-hover:text-primary transition-colors">hello@scanlab.example</span>
+                  </div>
+                </a>
+
+                <a class="flex items-start group" href="https://t.me/scanlab_support" aria-label="Открыть Telegram">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center mr-6 group-hover:bg-primary group-hover:border-primary transition-colors shadow-lg"
+                  >
+                    <span class="material-icons text-slate-200 group-hover:text-white">send</span>
+                  </div>
+                  <div>
+                    <span class="block text-xs text-slate-500 uppercase font-semibold tracking-wider mb-1">Telegram</span>
+                    <span class="text-xl text-white font-medium group-hover:text-primary transition-colors">@scanlab_support</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-surface-card h-[320px]">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="w-full h-full opacity-30 bg-mesh-grid mesh-overlay"></div>
+                </div>
+                <div class="absolute bottom-6 left-6">
+                  <div class="flex items-center gap-3 mb-1">
+                    <span class="material-icons text-primary">location_on</span>
+                    <p class="text-white font-bold text-lg">Штаб-квартира</p>
+                  </div>
+                  <p class="text-slate-300 text-sm ml-9">Москва, инновационный район</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="contact-form"
+              class="bg-surface-card border border-white/10 rounded-2xl p-8 lg:p-10 shadow-2xl relative"
+            >
+              <div class="absolute -top-1 -right-1 w-20 h-20 bg-primary/15 rounded-bl-full rounded-tr-lg pointer-events-none"></div>
+
+              <h2 class="font-display text-2xl font-bold text-white mb-2">Обсудите ваш проект с инженером</h2>
+              <p class="text-slate-400 mb-8 text-sm">Заполните форму, и мы подготовим предварительную оценку.</p>
+
+              <form class="space-y-6">
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2" for="name">Имя</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Как к вам обращаться"
+                    aria-label="Имя"
+                    class="ui-field"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2" for="contact">Email или телефон</label>
+                  <input
+                    id="contact"
+                    name="contact"
+                    type="text"
+                    placeholder="Для связи с вами"
+                    aria-label="Контакт"
+                    class="ui-field"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2" for="service-type">Тип услуги</label>
+                  <div class="relative">
+                    <select
+                      id="service-type"
+                      name="service"
+                      aria-label="Тип услуги"
+                      class="ui-select pr-10 appearance-none cursor-pointer"
+                    >
+                      <option>3D-сканирование</option>
+                      <option>Реверс-инжиниринг</option>
+                      <option>Контроль качества</option>
+                      <option>3D-печать</option>
+                      <option>Другое</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                      <span class="material-icons text-sm">expand_more</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-slate-300 mb-2" for="project-desc">Описание проекта</label>
+                  <textarea
+                    id="project-desc"
+                    name="details"
+                    rows="4"
+                    placeholder="Размеры объекта, цели сканирования, требуемый формат файлов..."
+                    aria-label="Описание проекта"
+                    class="ui-textarea min-h-[140px]"
+                  ></textarea>
+                </div>
+
+                <div class="pt-2">
+                  <button
+                    type="submit"
+                    class="ui-btn ui-btn--primary ui-btn--lg w-full"
+                  >
+                    Отправить запрос
+                    <span class="material-icons text-sm">arrow_forward</span>
+                  </button>
+                  <p class="text-center text-xs text-slate-500 mt-4">
+                    Нажимая кнопку, вы соглашаетесь с нашей
+                    <a class="ui-inline-link" href="privacy.html">политикой конфиденциальности</a>.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10 bg-surface-card/50">
+        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="flex items-center gap-4">
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--card ui-icon-btn--solid"
+              href="https://t.me/scanlab_support"
+              aria-label="Telegram"
+            >
+              <span class="material-icons text-lg">send</span>
+            </a>
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--card ui-icon-btn--solid"
+              href="mailto:hello@scanlab.example"
+              aria-label="Email"
+            >
+              <span class="material-icons text-lg">mark_email_unread</span>
+            </a>
+          </div>
+
+          <div class="text-center md:text-right">
+            <p class="text-sm font-semibold text-white uppercase tracking-wider mb-1">Часы работы</p>
+            <p class="text-slate-400 text-sm">Пн - Пт: 9:00 - 20:00 (МСК)</p>
+            <p class="text-slate-400 text-sm">Сб - Вс: По запросу</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-surface-card py-10">
+      <div class="max-w-[1600px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 justify-center md:justify-start">
+          <span class="material-symbols-outlined text-primary">deployed_code</span>
+          <span class="font-display font-bold tracking-tight text-slate-200">SCAN<span class="text-primary">.LAB</span></span>
+        </a>
+
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Навигация в футере">
+          <a class="ui-link" href="services.html">Услуги</a>
+          <a class="ui-link" href="process.html">Процесс</a>
+          <a class="ui-link" href="portfolio.html">Портфолио</a>
+          <a class="ui-link" href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+          <div class="flex items-center gap-3">
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
+              href="https://t.me/scanlab_support"
+              aria-label="Telegram"
+            >
+              <span class="material-icons text-lg">send</span>
+            </a>
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
+              href="mailto:hello@scanlab.example"
+              aria-label="Email"
+            >
+              <span class="material-icons text-lg">mark_email_unread</span>
+            </a>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>

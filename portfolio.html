@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="dark" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфолио | SCAN.LAB</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="assets/tailwind-config.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+
+  <body data-page="portfolio" class="bg-background-dark text-white font-body antialiased selection:bg-primary selection:text-white">
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
+      <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
+          <div
+            class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]"
+          >
+            <span class="material-symbols-outlined text-primary">deployed_code</span>
+          </div>
+          <span class="font-display font-bold tracking-tight text-white text-lg"
+            >SCAN<span class="text-primary">.LAB</span></span
+          >
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Основная навигация">
+          <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+          <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+          <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+          <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="contacts.html#contact-form"
+            class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex"
+          >
+            Рассчитать стоимость
+          </a>
+          <button
+            data-menu-button
+            type="button"
+            class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+          >
+            <span class="material-icons-round">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div data-menu class="hidden md:hidden border-t border-white/10">
+        <nav class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300" aria-label="Мобильная навигация">
+          <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+          <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+          <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+          <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+          <a
+            href="contacts.html#contact-form"
+            class="ui-btn ui-btn--primary ui-btn--sm mt-2"
+          >
+            Рассчитать стоимость
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-16 pb-20 min-h-screen" data-portfolio>
+      <section class="max-w-[1600px] mx-auto px-6 pt-12 mb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+          <div>
+            <h1 class="font-display text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Портфолио <span class="text-primary">.</span>
+            </h1>
+            <p class="text-slate-400 max-w-xl text-lg">
+              Избранные проекты по оцифровке культурного наследия, промышленному реверс-инжинирингу и ассетам для
+              медиа-индустрии.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 md:justify-end">
+            <button
+              type="button"
+              data-filter="all"
+              class="filter-btn is-active"
+            >
+              Все проекты
+            </button>
+            <button
+              type="button"
+              data-filter="architecture"
+              class="filter-btn"
+            >
+              Архитектура
+            </button>
+            <button
+              type="button"
+              data-filter="industrial"
+              class="filter-btn"
+            >
+              Промышленность
+            </button>
+            <button
+              type="button"
+              data-filter="art"
+              class="filter-btn"
+            >
+              Искусство
+            </button>
+            <button
+              type="button"
+              data-filter="auto"
+              class="filter-btn"
+            >
+              Авто
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-white/10 py-6">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">view_in_ar</span>
+            <div class="flex flex-col">
+              <span class="text-xs text-slate-500 uppercase tracking-wider">Всего моделей</span>
+              <span class="font-mono text-white font-bold">1 240+</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+            <div class="flex flex-col">
+              <span class="text-xs text-slate-500 uppercase tracking-wider">Средняя точность</span>
+              <span class="font-mono text-white font-bold">0.05 mm</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">cloud_download</span>
+            <div class="flex flex-col">
+              <span class="text-xs text-slate-500 uppercase tracking-wider">Объем данных</span>
+              <span class="font-mono text-white font-bold">450 TB</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">public</span>
+            <div class="flex flex-col">
+              <span class="text-xs text-slate-500 uppercase tracking-wider">География</span>
+              <span class="font-mono text-white font-bold">12 стран</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-[1600px] mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-min">
+          <article
+            data-card
+            data-category="architecture"
+            class="lg:col-span-2 lg:row-span-2 group relative bg-surface-card rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-500 shadow-xl"
+          >
+            <div class="js-ba relative h-[520px] w-full" data-ba>
+              <img
+                alt="Цифровой меш (wireframe) архитектурного объекта"
+                class="absolute inset-0 w-full h-full object-cover filter brightness-125 contrast-125 saturate-0"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHykhRVNx8pSpqSynfGk8HtwUcd_k3XpmIHwlOydy6dEX3J06M6xc7Nwefa-5ysIphHVO8vLlzvin0sZvmMT8wNEO_wB3UDIj-NAzlr99JQmpjiGtidy6c8SWZ7EfnzxjL-0DvEygzZKXPkB-oIcpCOROA85bX2TlQ4glRl8g1nzMfsTLDs_uSl-3a-ejztYITHxGLZ5t6aP55MPJVi03QNh-50bs21UluY0r1CUeWg091H46fk3wWwhe_BbZD_OQlGunLjmh7Dg"
+              />
+              <div class="absolute inset-0 bg-primary/15 mix-blend-overlay"></div>
+
+              <div class="js-ba-before" data-ba-before>
+                <img
+                  alt="Фотография архитектурного объекта"
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRoUhhOFoNEKefGj6rSozsEomCcOolxB_eyFK7oTYNtLzNYqwHdoAjbTs7H0WwE3u42pRkVwwDdMZM3HS4j6fQskmesIt3tFF5o52cmDJfopG6nfAUlKyr9CbhFQbN2iV4PQzvyDhEInpIf2YrBQ1brAtUsfDHVREhSxRBQ91Dq-pHOSArEk-xzhChr2VXnuLGtho9ct-WVJP25UwMDg0bdoGcIwT77IYNDlLcsrGbgG-0ZQJ2oSfl-RtYRv9zBLS5m4djopMj7g"
+                />
+                <div class="absolute inset-0 bg-black/10"></div>
+              </div>
+
+              <div class="js-ba-handle" data-ba-handle aria-label="Ползунок сравнения">
+                <div class="w-9 h-9 bg-primary rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(0,102,255,0.45)] ring-4 ring-black/20">
+                  <span class="material-icons-round text-white text-sm">compare_arrows</span>
+                </div>
+              </div>
+
+              <div class="absolute top-6 left-6 flex gap-2 z-20">
+                <span class="bg-primary/90 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg"
+                  >Избранное</span
+                >
+                <span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border border-white/10"
+                  >Архитектура</span
+                >
+              </div>
+            </div>
+
+            <div class="p-8 bg-surface-card border-t border-white/10">
+              <div class="flex items-start justify-between gap-6 mb-4">
+                <div>
+                  <h3 class="font-display text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                    Реставрация Триумфальных ворот
+                  </h3>
+                  <p class="text-slate-400 max-w-md">
+                    Полный цикл оцифровки для реставрационных работ. Комбинация наземного лазерного сканирования и
+                    фотограмметрии.
+                  </p>
+                </div>
+                <div class="hidden sm:flex flex-col items-end gap-1">
+                  <div class="text-xs text-slate-500 uppercase tracking-wide">Точность</div>
+                  <div class="font-mono text-primary font-bold">2mm</div>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-slate-300 font-mono">LIDAR</span>
+                <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-slate-300 font-mono"
+                  >PHOTOGRAMMETRY</span
+                >
+                <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-slate-300 font-mono">OBJ / RCS</span>
+                <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-slate-300 font-mono">150GB</span>
+              </div>
+
+              <div class="pt-6">
+                <a
+                  href="case.html"
+                  class="ui-action-link inline-flex items-center gap-2 group/link"
+                >
+                  Смотреть кейс
+                  <span class="material-icons-round text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            data-card
+            data-category="art"
+            class="lg:col-span-1 lg:row-span-2 group relative bg-surface-card rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-300 flex flex-col"
+          >
+            <div class="relative flex-grow min-h-[300px] overflow-hidden">
+              <img
+                alt="3D меш бюста (скульптура)"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXZOcFU8csmn8VkAWbXu1F7b2mSyYVYUxZNsqaA6JkBvw4V3XPqNwYXxT7pAqJiX86SZcTPChBjNsvsm60XbtA7sefSPnV2JJYag5LZQQjGcPWWPyxP1QLJocyUO3zz503N-5d2ffFaA8NbzybE5Rb17RPM0rs6wcDRpVMDI9ABdzSDNIW1-f4-1rFvXrNoOBMgmqtCCpf-_Mq6IkCA_hCL6wCx21YK3QF0ZA-_R-fDQaLmR5H5_h2ZZIxV1cm0jlOHDS5KDz7ng"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-card via-transparent to-transparent opacity-80"></div>
+              <div class="absolute top-6 left-6">
+                <span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border border-white/10"
+                  >Искусство</span
+                >
+              </div>
+            </div>
+            <div class="p-6 relative z-10 -mt-12">
+              <div class="backdrop-blur-xl bg-surface-card/80 p-4 rounded-xl border border-white/10 shadow-lg">
+                <h3 class="font-display text-lg font-bold text-white mb-1">Оцифровка скульптуры</h3>
+                <p class="text-xs text-slate-400 mb-4 line-clamp-2">Подготовка цифрового двойника для репликации и витрины.</p>
+                <div class="grid grid-cols-2 gap-2 border-t border-white/10 pt-3 mt-2">
+                  <div>
+                    <div class="text-[10px] text-slate-500 uppercase">Точность</div>
+                    <div class="text-sm font-mono text-white">0.05mm</div>
+                  </div>
+                  <div>
+                    <div class="text-[10px] text-slate-500 uppercase">Полигонов</div>
+                    <div class="text-sm font-mono text-white">15M</div>
+                  </div>
+                </div>
+                <div class="pt-4">
+                  <a class="ui-action-link text-sm" href="case.html">Смотреть кейс</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            data-card
+            data-category="industrial"
+            class="lg:col-span-1 group relative bg-surface-card rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-300"
+          >
+            <div class="aspect-square relative overflow-hidden">
+              <img
+                alt="Сканирование детали двигателя (промышленность)"
+                class="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-300"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0JxtarSvNPQcX7g9TzN4vORmwaGh8zrz2zbxFaZmZ6bjnt4A8Cpasvjz6f32Nmg_8WQQnGGV6uRzP2XFzQqcBdEG4Ay22Ulwto7HIDVwzeHJ0eeDBD2lcif5HzOhIBJ-nk9myBEyEEyL10TUx2xn-WU5v-0tlYI3Bl7sGnKDi30exzawsRsbzon8lX7mh0TVsw096294OzyskW65TavXbK8QBHpSq7YUFXLn7VYQ82ZblGO0oJXyScHnrzmRjVKT62YW2Q2rDVQ"
+              />
+              <div class="absolute inset-0 bg-gradient-to-tr from-surface-card/90 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-6 w-full">
+                <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1 block">Промышленность</span>
+                <h3 class="font-display text-lg font-bold text-white leading-tight mb-2">Деталь ДВС</h3>
+                <div class="flex items-center gap-2 text-xs text-slate-300 font-mono">
+                  <span class="material-icons-round text-sm">qr_code_2</span>
+                  STEP / IGES
+                </div>
+                <div class="pt-4">
+                  <a class="ui-action-link text-sm" href="case.html">Смотреть кейс</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            data-card
+            data-category="industrial"
+            class="lg:col-span-1 group relative bg-surface-card rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-300"
+          >
+            <div class="aspect-square relative overflow-hidden bg-background-dark">
+              <img
+                alt="Абстрактная карта топологии поверхности"
+                class="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:scale-110 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFQY8jzThjhhNd0XZkzcVk26JoFAmnBdrzRiz3QC9lP8SG_2fI_O3a8ZY8z3Pb1ntmcdinff7gYGLLp-lGYLlAYisSG-BzHc30NgzuiKAqiSJfAuK7BgWDVJLMD3MuZV--2lfcYClLXPi96NSy-JzSS-ryMoXRB0jepWCB8EZJ-ANV98RDMHBYeKy3Yto5V03xQQxvLQc8a0xa-g1agvQk09l5gSj0Hnrtn7I1jHSU3cu3xRne9JNLx77RHZQ_2j8KvnOMS-o8wQ"
+              />
+              <div class="absolute inset-0 bg-mesh-grid opacity-30"></div>
+              <div class="absolute inset-0 flex flex-col justify-between p-6">
+                <div class="flex justify-between items-start">
+                  <span class="bg-primary/20 text-primary px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wide border border-primary/20"
+                    >Analysis</span
+                  >
+                  <span class="material-symbols-outlined text-slate-500">query_stats</span>
+                </div>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-white mb-1">Топология лопатки</h3>
+                  <p class="text-xs text-slate-300 font-mono">Dev: ±0.02mm</p>
+                  <div class="pt-4">
+                    <a class="ui-action-link text-sm" href="case.html">Смотреть кейс</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article
+            data-card
+            data-category="auto"
+            class="lg:col-span-2 group relative bg-surface-card rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-300"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 h-full">
+              <div class="relative h-64 md:h-auto overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] bg-background-dark">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute top-4 left-4">
+                  <span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border border-white/10"
+                    >Авто</span
+                  >
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-primary/35 text-7xl">settings_suggest</span>
+                </div>
+              </div>
+              <div class="p-8 flex flex-col justify-center border-l border-white/10 bg-surface-card">
+                <h3 class="font-display text-xl font-bold text-white mb-2">Двигатель V8</h3>
+                <p class="text-sm text-slate-400 mb-6 leading-relaxed">
+                  Реверс-инжиниринг узла для производства запчастей и контроля геометрии.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between text-sm border-b border-white/10 pb-2">
+                    <span class="text-slate-500">Формат</span>
+                    <span class="text-white font-mono">STEP / IGES</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm border-b border-white/10 pb-2">
+                    <span class="text-slate-500">Точность</span>
+                    <span class="text-white font-mono">0.02mm</span>
+                  </div>
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="text-slate-500">Сроки</span>
+                    <span class="text-primary font-mono">24–72ч</span>
+                  </div>
+                </div>
+                <div class="pt-6">
+                  <a class="ui-action-link text-sm" href="case.html">Смотреть кейс</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-16 flex justify-center">
+          <button
+            type="button"
+            class="ui-btn ui-btn--secondary ui-btn--md"
+          >
+            <span class="material-symbols-outlined animate-spin text-primary text-lg">autorenew</span>
+            Загрузить еще проекты
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-surface-card py-10">
+      <div class="max-w-[1600px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 justify-center md:justify-start">
+          <span class="material-symbols-outlined text-primary">deployed_code</span>
+          <span class="font-display font-bold tracking-tight text-slate-200">SCAN<span class="text-primary">.LAB</span></span>
+        </a>
+
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Навигация в футере">
+          <a class="ui-link" href="services.html">Услуги</a>
+          <a class="ui-link" href="process.html">Процесс</a>
+          <a class="ui-link" href="portfolio.html">Портфолио</a>
+          <a class="ui-link" href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+          <div class="flex items-center gap-3">
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
+              href="https://t.me/scanlab_support"
+              aria-label="Telegram"
+            >
+              <span class="material-icons text-lg">send</span>
+            </a>
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
+              href="mailto:hello@scanlab.example"
+              aria-label="Email"
+            >
+              <span class="material-icons text-lg">mark_email_unread</span>
+            </a>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>

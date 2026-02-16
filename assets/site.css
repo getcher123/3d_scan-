@@ -1,0 +1,476 @@
+:root {
+  /* Brand */
+  --color-primary: #0066ff;
+  --color-primary-dark: #0052cc;
+  --color-primary-rgb: 0 102 255;
+  --color-primary-dark-rgb: 0 82 204;
+
+  /* Surfaces */
+  --color-background-light: #f6f6f8;
+  --color-background-dark: #0a0a0a;
+  --color-surface-dark: #151d2c;
+  --color-surface-card: #111827;
+  --color-surface-lighter: #1e293b;
+  --color-surface-grey: #262626;
+  --color-background-light-rgb: 246 246 248;
+  --color-background-dark-rgb: 10 10 10;
+  --color-surface-dark-rgb: 21 29 44;
+  --color-surface-card-rgb: 17 24 39;
+  --color-surface-lighter-rgb: 30 41 59;
+  --color-surface-grey-rgb: 38 38 38;
+
+  /* Status */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-accent-cyan: #00f0ff;
+  --color-success-rgb: 16 185 129;
+  --color-error-rgb: 239 68 68;
+  --color-accent-cyan-rgb: 0 240 255;
+
+  /* Radii + shadows (UI kit primitives) */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-primary: 0 4px 20px rgb(var(--color-primary-rgb) / 0.25);
+  --shadow-primary-hover: 0 6px 26px rgb(var(--color-primary-rgb) / 0.38);
+  --shadow-focus: 0 0 0 2px rgb(var(--color-primary-rgb) / 0.85), 0 0 0 6px rgb(0 0 0 / 0.55);
+}
+
+/* Shared header background */
+.glass-nav {
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(14px);
+}
+
+/* Portfolio filters */
+.filter-btn.is-active {
+  background: var(--color-primary);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 15px rgb(var(--color-primary-rgb) / 0.35);
+}
+
+/* Used by workflow/portfolio heroes */
+.mesh-overlay {
+  background-size: 20px 20px;
+  mask-image: linear-gradient(to bottom, transparent, black);
+}
+
+/* UI kit: "LiDAR points" background helper */
+.lidar-points {
+  background-image: radial-gradient(rgb(var(--color-primary-rgb) / 0.85) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+/* UI kit: small reusable patterns (used to avoid inline style="...") */
+.pattern-dots-muted {
+  background-image: radial-gradient(rgb(var(--color-primary-rgb) / 0.22) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.pattern-diagonal-muted {
+  background-image:
+    linear-gradient(
+      45deg,
+      rgb(var(--color-surface-lighter-rgb) / 1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(var(--color-surface-lighter-rgb) / 1) 75%,
+      rgb(var(--color-surface-lighter-rgb) / 1)
+    ),
+    linear-gradient(
+      45deg,
+      rgb(var(--color-surface-lighter-rgb) / 1) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgb(var(--color-surface-lighter-rgb) / 1) 75%,
+      rgb(var(--color-surface-lighter-rgb) / 1)
+    );
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+.pattern-primary-dots {
+  background-image: radial-gradient(rgb(var(--color-primary-rgb) / 0.9) 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+/* SERVICES page helpers */
+body[data-page="services"] .grid-bg,
+body[data-page="home"] .grid-bg {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgb(var(--color-primary-rgb) / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-primary-rgb) / 0.06) 1px, transparent 1px);
+}
+body[data-page="services"] .hero-glow,
+body[data-page="home"] .hero-glow {
+  background: radial-gradient(circle at 50% 50%, rgb(var(--color-primary-rgb) / 0.18) 0%, transparent 70%);
+}
+
+/* Generic "before/after" slider used by several mockups */
+.js-ba {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+}
+.js-ba .js-ba-before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+.js-ba .js-ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--color-primary);
+  z-index: 10;
+  cursor: col-resize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   Interactive (UI Kit)
+   ========================= */
+
+/* Generic links */
+.ui-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease;
+  outline: none;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.ui-link:hover {
+  color: rgb(var(--color-primary-rgb) / 1);
+}
+.ui-link:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-rgb) / 0.85);
+}
+
+/* Header navigation links with active state */
+.ui-nav-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  transition: color 180ms ease;
+  outline: none;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.ui-nav-link:hover {
+  color: rgb(var(--color-primary-rgb) / 1);
+}
+.ui-nav-link:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-rgb) / 0.85);
+}
+.ui-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgb(var(--color-primary-rgb) / 0.9);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease, opacity 180ms ease;
+  filter: drop-shadow(0 0 10px rgb(var(--color-primary-rgb) / 0.35));
+}
+.ui-nav-link:hover::after {
+  opacity: 0.6;
+  transform: scaleX(1);
+}
+.ui-nav-link[aria-current="page"] {
+  color: rgb(var(--color-primary-rgb) / 1);
+}
+.ui-nav-link[aria-current="page"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Prominent text links (e.g. "Смотреть кейс") */
+.ui-action-link {
+  color: rgb(var(--color-primary-rgb) / 1);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 180ms ease;
+  outline: none;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.ui-action-link:hover {
+  color: #fff;
+}
+.ui-action-link:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-rgb) / 0.85);
+}
+
+/* Inline links inside text blocks */
+.ui-inline-link {
+  color: rgb(var(--color-primary-rgb) / 1);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color 180ms ease;
+  outline: none;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.ui-inline-link:hover {
+  color: #fff;
+}
+.ui-inline-link:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-rgb) / 0.85);
+}
+
+/* Buttons */
+:where(.ui-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ui-btn {
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  line-height: 1.2;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+.ui-btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+.ui-btn:active {
+  transform: translateY(0);
+}
+.ui-btn:disabled,
+.ui-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+.ui-btn--sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+.ui-btn--md {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+}
+.ui-btn--lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+.ui-btn--caps {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ui-btn--primary {
+  background: var(--color-primary);
+  border: 1px solid transparent;
+  color: #fff;
+  box-shadow: var(--shadow-primary);
+}
+.ui-btn--primary:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-primary-hover);
+  transform: translateY(-2px);
+}
+.ui-btn--primary:active {
+  background: var(--color-primary-dark);
+}
+
+.ui-btn--secondary {
+  background: rgb(255 255 255 / 0.04);
+  border: 1px solid rgb(255 255 255 / 0.14);
+  color: rgb(226 232 240 / 1);
+}
+.ui-btn--secondary:hover {
+  background: rgb(var(--color-primary-rgb) / 0.12);
+  border-color: rgb(var(--color-primary-rgb) / 0.45);
+  transform: translateY(-2px);
+}
+
+.ui-btn--ghost {
+  background: transparent;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  color: rgb(226 232 240 / 0.95);
+}
+.ui-btn--ghost:hover {
+  background: rgb(255 255 255 / 0.06);
+  border-color: rgb(255 255 255 / 0.22);
+  transform: translateY(-2px);
+}
+
+/* Icon buttons */
+:where(.ui-icon-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ui-icon-btn {
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background: transparent;
+  color: rgb(148 163 184 / 1);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+.ui-icon-btn--surface {
+  background: rgb(var(--color-surface-dark-rgb) / 0.75);
+}
+.ui-icon-btn--card {
+  background: rgb(var(--color-surface-card-rgb) / 0.85);
+}
+.ui-icon-btn:hover {
+  border-color: rgb(var(--color-primary-rgb) / 0.55);
+  background: rgb(var(--color-primary-rgb) / 0.12);
+  color: rgb(var(--color-primary-rgb) / 1);
+}
+.ui-icon-btn--solid:hover {
+  border-color: transparent;
+  background: rgb(var(--color-primary-rgb) / 1);
+  color: #fff;
+  box-shadow: 0 0 20px rgb(var(--color-primary-rgb) / 0.25);
+}
+.ui-icon-btn--primary {
+  border-color: transparent;
+  background: rgb(var(--color-primary-rgb) / 1);
+  color: #fff;
+  box-shadow: 0 0 16px rgb(var(--color-primary-rgb) / 0.35);
+}
+.ui-icon-btn--primary:hover {
+  background: rgb(var(--color-primary-dark-rgb) / 1);
+  color: #fff;
+  box-shadow: 0 0 18px rgb(var(--color-primary-rgb) / 0.42);
+}
+.ui-icon-btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+.ui-icon-btn:active {
+  transform: translateY(0);
+}
+.ui-icon-btn--sm {
+  width: 2rem;
+  height: 2rem;
+}
+.ui-icon-btn--md {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.ui-icon-btn--circle {
+  border-radius: 9999px;
+}
+.ui-icon-btn--square {
+  border-radius: var(--radius-sm);
+}
+
+/* Portfolio filters */
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.10);
+  background: rgb(var(--color-surface-card-rgb) / 1);
+  color: rgb(148 163 184 / 1);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+}
+.filter-btn:hover {
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.22);
+}
+.filter-btn:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+.filter-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Form fields */
+.ui-field,
+.ui-select,
+.ui-textarea {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(255 255 255 / 0.10);
+  background: rgb(var(--color-background-dark-rgb) / 0.55);
+  color: #fff;
+  padding: 0.875rem 1rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.ui-field::placeholder,
+.ui-textarea::placeholder {
+  color: rgb(100 116 139 / 1);
+}
+.ui-field:focus,
+.ui-select:focus,
+.ui-textarea:focus {
+  outline: none;
+  border-color: rgb(var(--color-primary-rgb) / 0.85);
+  box-shadow: 0 0 0 1px rgb(var(--color-primary-rgb) / 0.35), 0 0 0 4px rgb(var(--color-primary-rgb) / 0.18);
+  background: rgb(var(--color-background-dark-rgb) / 0.7);
+}
+.ui-field:disabled,
+.ui-select:disabled,
+.ui-textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Before/After handle: focus ring when keyboard-focusable */
+.js-ba .js-ba-handle:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-btn,
+  .ui-icon-btn,
+  .filter-btn,
+  .ui-link,
+  .ui-nav-link,
+  .ui-action-link,
+  .ui-inline-link {
+    transition: none;
+  }
+
+  .ui-btn--primary:hover,
+  .ui-btn--secondary:hover,
+  .ui-btn--ghost:hover,
+  .ui-icon-btn:hover {
+    transform: none;
+  }
+}

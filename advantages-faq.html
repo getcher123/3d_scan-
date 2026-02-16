@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="dark" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Преимущества и FAQ | SCAN.LAB</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="assets/tailwind-config.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+
+  <body class="bg-background-dark text-white font-body antialiased selection:bg-primary selection:text-white">
+    <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
+      <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
+          <div
+            class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]"
+          >
+            <span class="material-symbols-outlined text-primary">deployed_code</span>
+          </div>
+          <span class="font-display font-bold tracking-tight text-white text-lg"
+            >SCAN<span class="text-primary">.LAB</span></span
+          >
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Основная навигация">
+          <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+          <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+          <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+          <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="contacts.html#contact-form"
+            class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex"
+          >
+            Рассчитать стоимость
+          </a>
+          <button
+            data-menu-button
+            type="button"
+            class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+          >
+            <span class="material-icons-round">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div data-menu class="hidden md:hidden border-t border-white/10">
+        <nav class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300" aria-label="Мобильная навигация">
+          <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+          <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+          <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+          <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+          <a
+            href="contacts.html#contact-form"
+            class="ui-btn ui-btn--primary ui-btn--sm mt-2"
+          >
+            Рассчитать стоимость
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-24">
+      <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+          <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-[128px]"></div>
+          <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-primary rounded-full blur-[100px]"></div>
+          <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="text-center mb-16">
+            <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">Преимущества</h1>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+              Почему нас выбирают музеи, киноиндустрия и производство.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group p-8 bg-surface-card border border-white/10 rounded-xl hover:border-primary/50 transition-all hover:-translate-y-1">
+              <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+                <span class="material-icons text-3xl">flight_takeoff</span>
+              </div>
+              <h2 class="font-display text-xl font-bold text-white mb-3">Мобильность</h2>
+              <p class="text-slate-400 text-sm leading-relaxed">Выездное сканирование в любой точке, где это требуется проектом.</p>
+            </div>
+            <div class="group p-8 bg-surface-card border border-white/10 rounded-xl hover:border-primary/50 transition-all hover:-translate-y-1">
+              <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+                <span class="material-icons text-3xl">battery_charging_full</span>
+              </div>
+              <h2 class="font-display text-xl font-bold text-white mb-3">Автономность</h2>
+              <p class="text-slate-400 text-sm leading-relaxed">Самодостаточное оборудование и устойчивый пайплайн обработки данных.</p>
+            </div>
+            <div class="group p-8 bg-surface-card border border-white/10 rounded-xl hover:border-primary/50 transition-all hover:-translate-y-1">
+              <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+                <span class="material-icons text-3xl">aspect_ratio</span>
+              </div>
+              <h2 class="font-display text-xl font-bold text-white mb-3">Масштаб</h2>
+              <p class="text-slate-400 text-sm leading-relaxed">От микродеталей до зданий и крупного оборудования.</p>
+            </div>
+            <div class="group p-8 bg-surface-card border border-white/10 rounded-xl hover:border-primary/50 transition-all hover:-translate-y-1">
+              <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary">
+                <span class="material-icons text-3xl">assignment_turned_in</span>
+              </div>
+              <h2 class="font-display text-xl font-bold text-white mb-3">Помощь с ТЗ</h2>
+              <p class="text-slate-400 text-sm leading-relaxed">Поможем составить требования и выбрать форматы результата.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="font-display text-3xl font-bold text-white mb-2">FAQ</h2>
+            <p class="text-slate-400">Всё, что вам нужно знать о нашем процессе.</p>
+          </div>
+
+          <div class="space-y-4">
+            <details class="group bg-surface-card rounded-lg border border-white/10 open:border-primary/50 transition-colors">
+              <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white text-lg">
+                <span>Сколько времени занимает типичное сканирование?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div class="text-slate-300 px-6 pb-6 pt-0 leading-relaxed">
+                Зависит от задачи: небольшие объекты 30–60 минут, крупные — от нескольких часов до дня.
+              </div>
+            </details>
+
+            <details class="group bg-surface-card rounded-lg border border-white/10 open:border-primary/50 transition-colors">
+              <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-6 text-white text-lg">
+                <span>В каких форматах вы предоставляете файлы?</span>
+                <span class="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div class="text-slate-300 px-6 pb-6 pt-0 leading-relaxed">
+                STL/OBJ/PLY для меша, STEP/IGES для CAD, E57/RCP для облаков точек, а также форматы под ваш пайплайн.
+              </div>
+            </details>
+          </div>
+
+          <div class="mt-14 text-center">
+            <a
+              href="contacts.html#contact-form"
+              class="ui-btn ui-btn--primary ui-btn--lg"
+            >
+              Получить расчет
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-surface-card py-10">
+      <div class="max-w-[1600px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 justify-center md:justify-start">
+          <span class="material-symbols-outlined text-primary">deployed_code</span>
+          <span class="font-display font-bold tracking-tight text-slate-200">SCAN<span class="text-primary">.LAB</span></span>
+        </a>
+
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Навигация в футере">
+          <a class="ui-link" href="services.html">Услуги</a>
+          <a class="ui-link" href="process.html">Процесс</a>
+          <a class="ui-link" href="portfolio.html">Портфолио</a>
+          <a class="ui-link" href="contacts.html">Контакты</a>
+        </nav>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+          <div class="flex items-center gap-3">
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
+              href="https://t.me/scanlab_support"
+              aria-label="Telegram"
+            >
+              <span class="material-icons text-lg">send</span>
+            </a>
+            <a
+              class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
+              href="mailto:hello@scanlab.example"
+              aria-label="Email"
+            >
+              <span class="material-icons text-lg">mark_email_unread</span>
+            </a>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/site.js"></script>
+  </body>
+</html>

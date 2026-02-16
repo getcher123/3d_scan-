@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UI Kit: Компоненты и Сетки</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/site.css"/>
+</head>
+<body class="bg-background-dark text-white font-body selection:bg-primary selection:text-white antialiased">
+<header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
+<div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+<a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
+<div class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]">
+<span class="material-symbols-outlined text-primary">deployed_code</span>
+</div>
+<span class="font-display font-bold tracking-tight text-white text-lg">SCAN<span class="text-primary">.LAB</span></span>
+</a>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Основная навигация">
+<a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+<a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+<a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+<a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+</nav>
+<div class="flex items-center gap-3">
+<a href="contacts.html#contact-form" class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex">Рассчитать стоимость</a>
+<button data-menu-button type="button" class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden" aria-label="Открыть меню" aria-expanded="false">
+<span class="material-icons-round">menu</span>
+</button>
+</div>
+</div>
+<div data-menu class="hidden md:hidden border-t border-white/10">
+<nav class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300" aria-label="Мобильная навигация">
+<a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+<a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+<a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+<a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+<a href="contacts.html#contact-form" class="ui-btn ui-btn--primary ui-btn--sm mt-2">Рассчитать стоимость</a>
+</nav>
+</div>
+</header>
+
+<main class="min-h-screen relative overflow-hidden pb-20 pt-24">
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+<div class="absolute top-20 left-10 w-96 h-96 bg-primary rounded-full blur-[150px]"></div>
+<div class="absolute bottom-20 right-10 w-80 h-80 bg-primary rounded-full blur-[120px]"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 space-y-24">
+<section class="space-y-6">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-px bg-slate-800 flex-grow"></span>
+<h2 class="text-slate-400 text-sm font-mono uppercase tracking-widest">01. Navigation Components</h2>
+<span class="h-px bg-slate-800 flex-grow"></span>
+</div>
+<div class="border border-slate-800 rounded-xl overflow-hidden bg-surface-dark relative">
+<div class="absolute top-0 left-0 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-br">STICKY HEADER</div>
+<div class="w-full bg-background-dark border-b border-slate-800 p-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">deployed_code</span>
+<span class="text-lg font-bold text-white uppercase tracking-tight">SCAN.<span class="text-primary">LAB</span></span>
+</div>
+<nav class="hidden md:flex space-x-6">
+<a class="ui-link text-xs font-medium text-white" href="services.html">Услуги</a>
+<a class="ui-link text-xs font-medium text-slate-400" href="portfolio.html">Кейсы</a>
+<a class="ui-link text-xs font-medium text-slate-400" href="index.html#about">Лаборатория</a>
+<a class="ui-link text-xs font-medium text-slate-400" href="contacts.html">Контакты</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-white"><span class="material-icons text-xl">search</span></button>
+<button class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded text-xs font-semibold transition-colors">Войти</button>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-slate-800 rounded-xl overflow-hidden bg-surface-dark relative mt-8">
+<div class="absolute top-0 left-0 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-br">FOOTER BAR</div>
+<div class="w-full bg-background-dark border-t border-slate-800 p-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-slate-500 text-xs">© 2024 Scan.Lab Inc. High precision scanning.</div>
+<div class="flex items-center gap-4">
+<a class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all" href="mailto:hello@scanlab.example" aria-label="Email">
+<span class="material-symbols-outlined text-sm">alternate_email</span> 
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all" href="portfolio.html" aria-label="Портфолио">
+<span class="material-symbols-outlined text-sm">videocam</span> 
+</a>
+<a class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all" href="portfolio.html" aria-label="Портфолио">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-6">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-px bg-slate-800 flex-grow"></span>
+<h2 class="text-slate-400 text-sm font-mono uppercase tracking-widest">02. Portfolio Grid Variants</h2>
+<span class="h-px bg-slate-800 flex-grow"></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 group relative h-64 rounded-2xl overflow-hidden border border-slate-800 bg-surface-card hover:border-primary/50 transition-all duration-300">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-slate-900 opacity-50 flex items-center justify-center">
+<div class="w-full h-full pattern-dots-muted opacity-20"></div>
+<span class="material-symbols-outlined text-6xl text-slate-700 absolute">view_in_ar</span>
+</div>
+<div class="absolute top-4 left-4 z-20">
+<span class="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary-dark dark:text-blue-300 text-xs font-bold rounded-full uppercase tracking-wider">Automotive</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+<h3 class="font-display text-xl font-bold text-white mb-1">Двигатель V8: Реверс-инжиниринг</h3>
+<div class="flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<p class="text-slate-400 text-sm truncate pr-4">Полное сканирование для производства запчастей</p>
+<span class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-icons text-sm">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 group relative h-64 rounded-2xl overflow-hidden border border-slate-800 bg-surface-card hover:border-primary/50 transition-all duration-300">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-slate-800 opacity-50 flex items-center justify-center">
+<div class="w-full h-full pattern-diagonal-muted opacity-20"></div>
+<span class="material-symbols-outlined text-6xl text-slate-700 absolute">stat_3</span>
+</div>
+<div class="absolute top-4 left-4 z-20">
+<span class="px-3 py-1 bg-blue-500/20 backdrop-blur-md border border-blue-500/30 text-blue-300 text-xs font-bold rounded-full uppercase tracking-wider">Art</span>
+</div>
+<div class="absolute bottom-6 left-6 right-6 z-20">
+<h3 class="font-display text-lg font-bold text-white mb-1 group-hover:text-primary transition-colors">Античная Статуя</h3>
+<p class="text-slate-500 text-xs">Музейная оцифровка</p>
+</div>
+</div>
+<div class="md:col-span-4 group relative h-64 rounded-2xl overflow-hidden border border-slate-800 bg-surface-card hover:border-primary/50 transition-all duration-300">
+<div class="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-slate-800 group-hover:scale-110 transition-transform duration-500">token</span>
+</div>
+<div class="absolute bottom-6 left-6 z-20">
+<div class="text-primary text-xs font-bold mb-1 uppercase">Industrial</div>
+<h3 class="font-display text-lg font-bold text-white">Турбина</h3>
+</div>
+</div>
+<div class="md:col-span-4 group relative h-64 rounded-2xl overflow-hidden border border-primary/50 ring-1 ring-primary/20 bg-surface-card cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-primary/40">precision_manufacturing</span>
+</div>
+<div class="absolute inset-x-4 bottom-4 bg-surface-lighter/40 backdrop-blur-xl border border-white/5 p-4 rounded-xl z-20 translate-y-0 opacity-100">
+<div class="flex justify-between items-start">
+<div>
+<div class="text-blue-300 text-[10px] font-bold uppercase tracking-wider mb-1">Medical</div>
+<h3 class="font-display text-base font-bold text-white">Протезирование</h3>
+</div>
+<span class="material-icons text-primary text-sm">arrow_outward</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col justify-center p-6 border border-slate-800 border-dashed rounded-2xl text-slate-500 text-sm">
+<p class="mb-2"><strong class="text-white">Grid System:</strong></p>
+<p>A flexible bento-grid layout allowing for 2:1, 1:1, and 1:2 aspect ratios.</p>
+<p class="mt-4"><strong class="text-white">Interactions:</strong></p>
+<ul class="list-disc list-inside mt-1 space-y-1">
+<li>Scale on hover</li>
+<li>Gradient reveal</li>
+<li>Glassmorphism cards</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="space-y-6">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-px bg-slate-800 flex-grow"></span>
+<h2 class="text-slate-400 text-sm font-mono uppercase tracking-widest">03. Detail View Components</h2>
+<span class="h-px bg-slate-800 flex-grow"></span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+<div class="space-y-4">
+<h3 class="font-display text-white font-medium text-sm mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                            Comparison Slider
+                        </h3>
+<div class="relative w-full h-[300px] rounded-2xl overflow-hidden border border-slate-700 select-none group">
+<div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+<div class="text-right w-full pr-12 text-slate-600 font-bold text-4xl opacity-20">WIREFRAME</div>
+<div class="absolute inset-0 pattern-primary-dots opacity-10"></div>
+</div>
+<div class="absolute inset-0 w-1/2 bg-slate-900 overflow-hidden border-r border-primary/50">
+<div class="absolute inset-0 flex items-center justify-center w-[550px]"> 
+<div class="text-left w-full pl-12 text-white font-bold text-4xl opacity-20">ORIGINAL</div>
+</div>
+</div>
+<div class="absolute inset-y-0 left-1/2 w-1 -ml-0.5 bg-primary cursor-ew-resize z-20 flex items-center justify-center">
+<div class="w-8 h-8 rounded-full bg-white ring-4 ring-primary/30 flex items-center justify-center shadow-2xl transform hover:scale-110 transition-transform">
+<span class="material-icons text-primary text-xs">code</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur">SCAN</div>
+<div class="absolute bottom-4 right-4 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded backdrop-blur">CAD MODEL</div>
+</div>
+</div>
+<div class="space-y-8">
+<div>
+<h3 class="font-display text-white font-medium text-sm mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                Technical Specs Table
+                            </h3>
+<div class="bg-surface-dark border border-slate-800 rounded-xl overflow-hidden">
+<table class="w-full text-left text-sm">
+<tbody class="divide-y divide-slate-800">
+<tr class="group hover:bg-slate-800/50 transition-colors">
+<td class="py-4 px-6 text-slate-400 font-medium">Точность сканирования</td>
+<td class="py-4 px-6 text-white text-right font-mono">0.02 mm</td>
+</tr>
+<tr class="group hover:bg-slate-800/50 transition-colors">
+<td class="py-4 px-6 text-slate-400 font-medium">Количество полигонов</td>
+<td class="py-4 px-6 text-white text-right font-mono">12.5 M</td>
+</tr>
+<tr class="group hover:bg-slate-800/50 transition-colors">
+<td class="py-4 px-6 text-slate-400 font-medium">Формат файла</td>
+<td class="py-4 px-6 text-white text-right font-mono">.STL, .OBJ</td>
+</tr>
+<tr class="group hover:bg-slate-800/50 transition-colors">
+<td class="py-4 px-6 text-slate-400 font-medium">Время обработки</td>
+<td class="py-4 px-6 text-white text-right font-mono">48 hrs</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<h3 class="font-display text-white font-medium text-sm mb-4 flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                Primary Action Button
+                            </h3>
+<button class="flex items-center justify-between w-full sm:w-auto min-w-[240px] px-6 py-4 bg-surface-dark border border-slate-700 hover:border-primary text-white rounded-xl group transition-all duration-300 hover:shadow-[0_0_20px_rgba(19,91,236,0.15)]">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-slate-800 rounded-lg text-slate-300 group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-icons">description</span>
+</div>
+<div class="text-left">
+<div class="text-sm font-bold group-hover:text-primary transition-colors">Скачать отчет</div>
+<div class="text-xs text-slate-500">PDF, 24.5 MB</div>
+</div>
+</div>
+<span class="material-icons text-slate-500 group-hover:translate-x-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-6">
+<div class="flex items-center gap-4 mb-8">
+<span class="h-px bg-slate-800 flex-grow"></span>
+<h2 class="text-slate-400 text-sm font-mono uppercase tracking-widest">04. Feedback &amp; Call to Action</h2>
+<span class="h-px bg-slate-800 flex-grow"></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-gradient-to-r from-blue-900/20 to-surface-dark border border-blue-900/50 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">send</span> 
+</div>
+<div>
+<h4 class="font-display text-white font-bold">Обсудить проект</h4>
+<p class="text-slate-400 text-sm">Быстрый ответ в Telegram</p>
+</div>
+</div>
+<button class="ui-btn ui-btn--primary ui-btn--sm relative z-10">Написать менеджеру</button>
+</div>
+<div class="bg-green-900/10 border border-green-500/20 rounded-2xl p-6 flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
+<span class="material-icons text-sm">check_circle</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-display text-green-400 font-bold text-sm mb-1">Заявка отправлена успешно</h4>
+<p class="text-green-200/60 text-xs leading-relaxed">Наш инженер свяжется с вами в течение 15 минут для уточнения деталей сканирования.</p>
+</div>
+<button class="text-green-400/50 hover:text-green-400">
+<span class="material-icons text-lg">close</span>
+</button>
+</div>
+<div class="bg-slate-800/40 border border-slate-700 rounded-2xl p-6 flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-slate-300">
+<span class="material-icons text-sm">info</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-display text-white font-bold text-sm mb-1">Требования к объекту</h4>
+<p class="text-slate-400 text-xs leading-relaxed">Для глянцевых или прозрачных поверхностей требуется нанесение матирующего спрея.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="border-t border-white/10 bg-surface-card py-10">
+<div class="max-w-[1600px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+<a href="index.html" class="flex items-center gap-3 justify-center md:justify-start">
+<span class="material-symbols-outlined text-primary">deployed_code</span>
+<span class="font-display font-bold tracking-tight text-slate-200">SCAN<span class="text-primary">.LAB</span></span>
+</a>
+<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Навигация в футере">
+<a class="ui-link" href="services.html">Услуги</a>
+<a class="ui-link" href="process.html">Процесс</a>
+<a class="ui-link" href="portfolio.html">Портфолио</a>
+<a class="ui-link" href="contacts.html">Контакты</a>
+</nav>
+<div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+<div class="flex items-center gap-3">
+<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="https://t.me/scanlab_support" aria-label="Telegram">
+<span class="material-icons text-lg">send</span>
+</a>
+<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="mailto:hello@scanlab.example" aria-label="Email">
+<span class="material-icons text-lg">mark_email_unread</span>
+</a>
+</div>
+<p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
+</div>
+</div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body></html>

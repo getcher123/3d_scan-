@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UI Kit: Специфичные Блоки (3/3)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/site.css"/>
+</head>
+<body class="bg-background-dark text-white font-body selection:bg-primary selection:text-white antialiased">
+<header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
+<div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+<a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
+<div class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]">
+<span class="material-symbols-outlined text-primary">deployed_code</span>
+</div>
+<span class="font-display font-bold tracking-tight text-white text-lg">SCAN<span class="text-primary">.LAB</span></span>
+</a>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Основная навигация">
+<a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+<a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+<a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+<a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+</nav>
+<div class="flex items-center gap-3">
+<a href="contacts.html#contact-form" class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex">Рассчитать стоимость</a>
+<button data-menu-button type="button" class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden" aria-label="Открыть меню" aria-expanded="false">
+<span class="material-icons-round">menu</span>
+</button>
+</div>
+</div>
+<div data-menu class="hidden md:hidden border-t border-white/10">
+<nav class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300" aria-label="Мобильная навигация">
+<a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
+<a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
+<a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
+<a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
+<a href="contacts.html#contact-form" class="ui-btn ui-btn--primary ui-btn--sm mt-2">Рассчитать стоимость</a>
+</nav>
+</div>
+</header>
+
+<main class="min-h-screen relative overflow-hidden pb-20 pt-24">
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-20 left-10 w-[500px] h-[500px] bg-primary rounded-full blur-[180px] opacity-10"></div>
+<div class="absolute bottom-20 right-10 w-[400px] h-[400px] bg-primary rounded-full blur-[150px] opacity-10"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10 space-y-20">
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="text-primary text-sm font-bold uppercase tracking-widest">01</span>
+<h2 class="font-display text-2xl font-bold text-white">Варианты блоков услуг</h2>
+<div class="h-px bg-slate-800 flex-grow ml-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="group relative bg-surface-dark border border-slate-800 rounded-2xl overflow-hidden hover:border-primary transition-all duration-300">
+<div class="absolute top-0 right-0 p-4 z-10">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-surface-lighter text-white border border-slate-700">
+                            от 5 000 ₽
+                        </span>
+</div>
+<div class="h-48 bg-surface-lighter relative overflow-hidden">
+<div class="absolute inset-0 bg-grid-pattern bg-[length:20px_20px] opacity-20"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-icons text-6xl text-slate-600 group-hover:text-primary transition-colors duration-300">business</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="p-6">
+<h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Сканирование в офисе</h3>
+<p class="text-slate-400 text-sm mb-4">
+                            Доставьте объект в нашу лабораторию. Идеально для небольших деталей и прототипов с высокой точностью до 0.02 мм.
+                        </p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-center text-xs text-slate-300">
+<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                                Максимальная точность
+                            </li>
+<li class="flex items-center text-xs text-slate-300">
+<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                                Студийное освещение
+                            </li>
+</ul>
+<button class="ui-btn ui-btn--secondary ui-btn--md w-full">
+                            Выбрать услугу
+                        </button>
+</div>
+</div>
+<div class="group relative bg-surface-dark border border-slate-800 rounded-2xl overflow-hidden hover:border-primary transition-all duration-300">
+<div class="absolute top-0 right-0 p-4 z-10">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/20 text-primary border border-primary/30">
+                            от 15 000 ₽
+                        </span>
+</div>
+<div class="h-48 bg-surface-lighter relative overflow-hidden">
+<div class="absolute inset-0 lidar-points opacity-30"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-icons text-6xl text-slate-600 group-hover:text-primary transition-colors duration-300">local_shipping</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="p-6">
+<h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Выездное сканирование</h3>
+<p class="text-slate-400 text-sm mb-4">
+                            Наши инженеры приедут к вам с оборудованием. Подходит для крупногабаритных объектов, зданий или неподвижных механизмов.
+                        </p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-center text-xs text-slate-300">
+<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                                Выезд по всей стране
+                            </li>
+<li class="flex items-center text-xs text-slate-300">
+<span class="material-icons text-primary text-sm mr-2">check_circle</span>
+                                Автономное оборудование
+                            </li>
+</ul>
+<button class="ui-btn ui-btn--primary ui-btn--md w-full">
+                            Заказать выезд
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="text-primary text-sm font-bold uppercase tracking-widest">02</span>
+<h2 class="font-display text-2xl font-bold text-white">Процесс работы</h2>
+<div class="h-px bg-slate-800 flex-grow ml-4"></div>
+</div>
+<div class="relative py-8">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-800 -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-2 md:grid-cols-7 gap-4 relative z-10">
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border-2 border-primary text-white flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(19,91,236,0.3)] z-10 relative">
+<span class="material-icons text-sm">assignment</span>
+</div>
+<h4 class="text-xs font-bold text-white uppercase mb-1">Заявка</h4>
+<p class="text-[10px] text-slate-400 leading-tight">Обсуждение ТЗ</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-slate-700 text-slate-400 flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-white transition-all z-10 relative">
+<span class="material-icons text-sm">calculate</span>
+</div>
+<h4 class="text-xs font-bold text-slate-300 group-hover:text-white uppercase mb-1">Расчет</h4>
+<p class="text-[10px] text-slate-500 group-hover:text-slate-400 leading-tight">Оценка стоимости</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-slate-700 text-slate-400 flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-white transition-all z-10 relative">
+<span class="material-icons text-sm">scanner</span>
+</div>
+<h4 class="text-xs font-bold text-slate-300 group-hover:text-white uppercase mb-1">Скан</h4>
+<p class="text-[10px] text-slate-500 group-hover:text-slate-400 leading-tight">Сбор данных</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-slate-700 text-slate-400 flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-white transition-all z-10 relative">
+<span class="material-icons text-sm">cloud_upload</span>
+</div>
+<h4 class="text-xs font-bold text-slate-300 group-hover:text-white uppercase mb-1">Обработка</h4>
+<p class="text-[10px] text-slate-500 group-hover:text-slate-400 leading-tight">Очистка облака</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-slate-700 text-slate-400 flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-white transition-all z-10 relative">
+<span class="material-icons text-sm">polyline</span>
+</div>
+<h4 class="text-xs font-bold text-slate-300 group-hover:text-white uppercase mb-1">Модель</h4>
+<p class="text-[10px] text-slate-500 group-hover:text-slate-400 leading-tight">Построение Mesh</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-slate-700 text-slate-400 flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-white transition-all z-10 relative">
+<span class="material-icons text-sm">verified</span>
+</div>
+<h4 class="text-xs font-bold text-slate-300 group-hover:text-white uppercase mb-1">Контроль</h4>
+<p class="text-[10px] text-slate-500 group-hover:text-slate-400 leading-tight">Проверка точности</p>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-surface-dark border border-slate-700 text-slate-400 flex items-center justify-center mb-4 group-hover:border-primary group-hover:text-white transition-all z-10 relative">
+<span class="material-icons text-sm">send</span>
+</div>
+<h4 class="text-xs font-bold text-slate-300 group-hover:text-white uppercase mb-1">Сдача</h4>
+<p class="text-[10px] text-slate-500 group-hover:text-slate-400 leading-tight">Передача файлов</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="text-primary text-sm font-bold uppercase tracking-widest">03</span>
+<h2 class="font-display text-2xl font-bold text-white">FAQ Аккордеон</h2>
+<div class="h-px bg-slate-800 flex-grow ml-4"></div>
+</div>
+<div class="space-y-4 max-w-3xl mx-auto">
+<div class="group bg-surface-dark border border-slate-800 rounded-xl overflow-hidden hover:border-slate-600 transition-colors cursor-pointer">
+<div class="px-6 py-4 flex items-center justify-between">
+<h3 class="font-display text-base font-medium text-white group-hover:text-primary transition-colors">В каком формате вы предоставляете результаты?</h3>
+<span class="material-icons text-slate-500 group-hover:text-white transition-colors">add</span>
+</div>
+</div>
+<div class="bg-surface-dark border border-primary/50 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(19,91,236,0.1)]">
+<div class="px-6 py-4 flex items-center justify-between border-b border-slate-800/50 bg-primary/5">
+<h3 class="font-display text-base font-medium text-primary">Какова точность вашего оборудования?</h3>
+<span class="material-icons text-primary">remove</span>
+</div>
+<div class="px-6 py-4 bg-surface-dark/50">
+<p class="text-slate-400 text-sm leading-relaxed">
+                            Мы используем промышленные сканеры метрологического класса. Точность сканирования зависит от оборудования и задачи, но обычно варьируется от <span class="text-white font-medium">0.02 мм</span> до <span class="text-white font-medium">0.1 мм</span>. Для архитектурных замеров точность составляет порядка 1-3 мм.
+                        </p>
+</div>
+</div>
+<div class="group bg-surface-dark border border-slate-800 rounded-xl overflow-hidden hover:border-slate-600 transition-colors cursor-pointer">
+<div class="px-6 py-4 flex items-center justify-between">
+<h3 class="font-display text-base font-medium text-white group-hover:text-primary transition-colors">Сколько времени занимает сканирование автомобиля?</h3>
+<span class="material-icons text-slate-500 group-hover:text-white transition-colors">add</span>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="text-primary text-sm font-bold uppercase tracking-widest">04</span>
+<h2 class="font-display text-2xl font-bold text-white">Визуализация Данных</h2>
+<div class="h-px bg-slate-800 flex-grow ml-4"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="relative h-64 bg-black rounded-2xl overflow-hidden border border-slate-800 group">
+<div class="absolute top-4 left-4 z-20">
+<span class="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded border border-primary/30">LIDAR_CLOUD_V2.0</span>
+</div>
+<div class="absolute inset-0 opacity-60">
+<div class="w-full h-full lidar-points animate-[pulse_4s_infinite]"></div>
+</div>
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-[2s] ease-in-out"></div>
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-end z-20">
+<div>
+<div class="text-xs text-slate-500 mb-1">Density</div>
+<div class="text-lg font-mono text-white">12.4M <span class="text-xs text-slate-500">pts</span></div>
+</div>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-red-500"></span>
+<span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+</div>
+</div>
+</div>
+<div class="relative h-64 bg-surface-dark rounded-2xl overflow-hidden border border-slate-800">
+<div class="absolute top-4 left-4 z-20">
+<span class="text-xs font-mono text-accent-cyan bg-accent-cyan/10 px-2 py-1 rounded border border-accent-cyan/30">MESH_WIREFRAME</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<svg class="w-full h-full opacity-20" preserveAspectRatio="none" viewBox="0 0 400 200">
+<defs>
+<pattern height="20" id="grid" patternUnits="userSpaceOnUse" width="20">
+<path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00f0ff" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+<path class="drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]" d="M50,100 Q150,50 200,100 T350,100" fill="none" stroke="#00f0ff" stroke-width="2"></path>
+<path d="M50,120 Q150,70 200,120 T350,120" fill="none" opacity="0.5" stroke="#00f0ff" stroke-width="1"></path>
+<circle class="animate-ping" cx="200" cy="100" fill="#fff" r="3"></circle>
+</svg>
+</div>
+<div class="absolute bottom-4 right-4 z-20 text-right">
+<div class="text-xs text-slate-500 mb-1">Polygons</div>
+<div class="text-lg font-mono text-white">245,000</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-4 mb-8">
+<span class="text-primary text-sm font-bold uppercase tracking-widest">05</span>
+<h2 class="font-display text-2xl font-bold text-white">Форма связи (Full)</h2>
+<div class="h-px bg-slate-800 flex-grow ml-4"></div>
+</div>
+<div class="bg-surface-dark border border-slate-800 rounded-2xl p-8 lg:p-10 shadow-2xl relative max-w-4xl mx-auto overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-40 h-40 bg-accent-cyan/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+<div class="lg:col-span-1 space-y-6">
+<h2 class="font-display text-2xl font-bold text-white leading-tight">Обсудите проект с инженером</h2>
+<p class="text-slate-400 text-sm">Заполните детали, чтобы мы могли подготовить точную оценку стоимости и сроков.</p>
+<div class="space-y-4 pt-4">
+<div class="flex items-center gap-3 text-sm text-slate-300">
+<div class="w-8 h-8 rounded bg-surface-lighter flex items-center justify-center text-primary">
+<span class="material-icons text-sm">timer</span>
+</div>
+<span>Ответ в течение 24ч</span>
+</div>
+<div class="flex items-center gap-3 text-sm text-slate-300">
+<div class="w-8 h-8 rounded bg-surface-lighter flex items-center justify-center text-primary">
+<span class="material-icons text-sm">security</span>
+</div>
+<span>NDA по запросу</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2">
+<form class="space-y-5">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<div>
+<label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2" for="name">Имя</label>
+<input class="ui-field" id="name" placeholder="Иван Иванов" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2" for="contact">Контакт</label>
+<input class="ui-field" id="contact" placeholder="Email или телефон" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2" for="service-type">Тип услуги</label>
+<div class="relative">
+<select class="ui-select pr-10 appearance-none cursor-pointer" id="service-type">
+<option>3D Сканирование</option>
+<option>Реверс-инжиниринг</option>
+<option>Контроль качества</option>
+<option>3D Печать</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+<span class="material-icons text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-2" for="project-desc">Детали проекта</label>
+<textarea class="ui-textarea min-h-[120px]" id="project-desc" placeholder="Опишите задачу, габариты объекта и требуемый формат результата..."></textarea>
+</div>
+<div class="border border-dashed border-slate-700 rounded-lg p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-lighter/50 hover:border-primary/50 transition-all group">
+<span class="material-icons text-slate-500 mb-2 group-hover:text-primary transition-colors">cloud_upload</span>
+<span class="text-xs text-slate-400 group-hover:text-white transition-colors">Перетащите файлы или нажмите для загрузки</span>
+<span class="text-[10px] text-slate-600 mt-1">PDF, STL, STEP, JPG (до 50MB)</span>
+</div>
+<div class="pt-2">
+<button class="ui-btn ui-btn--primary ui-btn--lg ui-btn--caps w-full" type="submit">
+                                    Отправить запрос
+                                </button>
+<p class="text-center text-[10px] text-slate-600 mt-3">
+                                    Нажимая кнопку, вы соглашаетесь с <a class="ui-inline-link" href="privacy.html">политикой конфиденциальности</a>
+</p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="border-t border-white/10 bg-surface-card py-10">
+<div class="max-w-[1600px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+<a href="index.html" class="flex items-center gap-3 justify-center md:justify-start">
+<span class="material-symbols-outlined text-primary">deployed_code</span>
+<span class="font-display font-bold tracking-tight text-slate-200">SCAN<span class="text-primary">.LAB</span></span>
+</a>
+<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-400" aria-label="Навигация в футере">
+<a class="ui-link" href="services.html">Услуги</a>
+<a class="ui-link" href="process.html">Процесс</a>
+<a class="ui-link" href="portfolio.html">Портфолио</a>
+<a class="ui-link" href="contacts.html">Контакты</a>
+</nav>
+<div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+<div class="flex items-center gap-3">
+<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="https://t.me/scanlab_support" aria-label="Telegram">
+<span class="material-icons text-lg">send</span>
+</a>
+<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="mailto:hello@scanlab.example" aria-label="Email">
+<span class="material-icons text-lg">mark_email_unread</span>
+</a>
+</div>
+<p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
+</div>
+</div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body></html>
