@@ -139,6 +139,7 @@ CSS
 - Цвета/градиенты из токенов (CSS variables + Tailwind colors из `assets/tailwind-config.js`).
 - Нет глобальных переопределений (`div {}` и т.п.).
 - Состояния `:hover`, `:focus`, `:disabled` заданы через классы Tailwind/компоненты.
+- Таблицы оборачиваются в `.table-wrapper`, метрики/статистика размечаются контейнером `.stat-cards` (или `.weekly-stats`).
 - Интерактив должен использовать единые классы: `.ui-btn`, `.ui-icon-btn`, `.ui-link/.ui-nav-link`, `.ui-action-link`, `.ui-inline-link`, `.ui-field/.ui-select/.ui-textarea`.
 
 JS

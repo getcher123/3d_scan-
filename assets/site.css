@@ -42,6 +42,21 @@
   backdrop-filter: blur(14px);
 }
 
+/* Checklist-required wrappers */
+:where(.table-wrapper) {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+:where(.table-wrapper) > table {
+  width: 100%;
+}
+:where(.stat-cards),
+:where(.weekly-stats) {
+  display: grid;
+  gap: 1rem;
+}
+
 /* Portfolio filters */
 .filter-btn.is-active {
   background: var(--color-primary);

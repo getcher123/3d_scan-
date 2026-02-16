@@ -110,6 +110,13 @@
             </button>
             <button
               type="button"
+              data-filter="museum"
+              class="filter-btn"
+            >
+              Музей
+            </button>
+            <button
+              type="button"
               data-filter="industrial"
               class="filter-btn"
             >
@@ -120,19 +127,12 @@
               data-filter="art"
               class="filter-btn"
             >
-              Искусство
-            </button>
-            <button
-              type="button"
-              data-filter="auto"
-              class="filter-btn"
-            >
-              Авто
+              Арт
             </button>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-white/10 py-6">
+        <div class="stat-cards grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-white/10 py-6">
           <div class="flex items-center gap-3">
             <span class="material-symbols-outlined text-primary">view_in_ar</span>
             <div class="flex flex-col">
@@ -339,7 +339,7 @@
 
           <article
             data-card
-            data-category="auto"
+            data-category="museum"
             class="lg:col-span-2 group relative bg-surface-card rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors duration-300"
           >
             <div class="grid grid-cols-1 md:grid-cols-2 h-full">
@@ -347,26 +347,26 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div class="absolute top-4 left-4">
                   <span class="bg-black/60 backdrop-blur text-white px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider border border-white/10"
-                    >Авто</span
+                    >Музей</span
                   >
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="material-symbols-outlined text-primary/35 text-7xl">settings_suggest</span>
+                  <span class="material-symbols-outlined text-primary/35 text-7xl">museum</span>
                 </div>
               </div>
               <div class="p-8 flex flex-col justify-center border-l border-white/10 bg-surface-card">
-                <h3 class="font-display text-xl font-bold text-white mb-2">Двигатель V8</h3>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Античная амфора</h3>
                 <p class="text-sm text-slate-400 mb-6 leading-relaxed">
-                  Реверс-инжиниринг узла для производства запчастей и контроля геометрии.
+                  Оцифровка экспоната для виртуальной витрины, реставрации и изготовления точной реплики.
                 </p>
                 <div class="space-y-3">
                   <div class="flex items-center justify-between text-sm border-b border-white/10 pb-2">
                     <span class="text-slate-500">Формат</span>
-                    <span class="text-white font-mono">STEP / IGES</span>
+                    <span class="text-white font-mono">OBJ / FBX / STL</span>
                   </div>
                   <div class="flex items-center justify-between text-sm border-b border-white/10 pb-2">
                     <span class="text-slate-500">Точность</span>
-                    <span class="text-white font-mono">0.02mm</span>
+                    <span class="text-white font-mono">0.05mm</span>
                   </div>
                   <div class="flex items-center justify-between text-sm">
                     <span class="text-slate-500">Сроки</span>

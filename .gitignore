@@ -1,0 +1,5 @@
+# Render artifacts (screenshots/logs)
+renders/
+
+# Local tools/cache (e.g. downloaded pandoc, playwright libs)
+.tmp/
