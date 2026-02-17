@@ -260,3 +260,4 @@ Options:
 - 2026-02-17 12:39 UTC: pushed branch to origin: `docx-tz-gapfix`.
 - 2026-02-17 12:39 UTC: final QA report path: `renders/after-docx-gapfix/report.json` (not committed).
 - 2026-02-17 12:41 UTC: finalized plan status + handoff notes.
+- 2026-02-17 15:06 UTC: post-gapfix UI cleanup: removed “Услуги/Процесс” from global header/footer nav; removed extra pre-footer contact icon strip on `contacts.html`; removed portfolio “Что фиксируем для каждого кейса…” note; removed contacts “Часы работы” block.
