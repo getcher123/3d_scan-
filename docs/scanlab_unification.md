@@ -73,7 +73,8 @@ Tailwind-классы используют `rgb(var(--...-rgb) / <alpha-value>)`
 
 - Кнопка бургер-меню: `[data-menu-button]` + `aria-expanded`
 - Контейнер мобильного меню: `[data-menu]` (по умолчанию `hidden`)
-- Навигационные ссылки: `.ui-nav-link` + `data-nav="services|process|portfolio|contacts"`
+- Навигационные ссылки (глобальная навигация): `.ui-nav-link` + `data-nav="portfolio|contacts"`
+- `services.html` и `process.html` остаются в проекте, но не должны быть в глобальном меню (информация дублируется на главной).
 - Контакты (desktop):
   - телефон: `a[href^="tel:"]` как `.ui-icon-btn` (видим на `lg+`)
   - email: `a[href^="mailto:"]` как `.ui-icon-btn` (видим на `lg+`)
@@ -85,7 +86,7 @@ Tailwind-классы используют `rgb(var(--...-rgb) / <alpha-value>)`
 Контракт footer:
 
 - Фон: `bg-surface-card`
-- Центр: ссылки на `services.html`, `process.html`, `portfolio.html`, `contacts.html`
+- Центр: ссылки на `portfolio.html`, `contacts.html`
 - Справа: контактные иконки (Telegram + Email), юридические ссылки и копирайт:
   - `privacy.html` (Политика конфиденциальности)
   - `offer.html` (Публичная оферта)
@@ -140,7 +141,7 @@ Tailwind-классы используют `rgb(var(--...-rgb) / <alpha-value>)`
 Единые классы лежат в `assets/site.css` (раздел `Interactive (UI Kit)`).
 
 - Навигация:
-- Header links: `.ui-nav-link` + `data-nav="services|process|portfolio|contacts"` (active через `aria-current="page"`).
+- Header links: `.ui-nav-link` + `data-nav="portfolio|contacts"` (active через `aria-current="page"`).
 - Обычные ссылки (footer/breadcrumbs): `.ui-link`.
 - Action links (“Смотреть кейс”, “Все услуги”): `.ui-action-link`.
 - Inline links в тексте: `.ui-inline-link`.
