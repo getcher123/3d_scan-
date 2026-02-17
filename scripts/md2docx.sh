@@ -3,10 +3,11 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: docx2md.sh INPUT.docx [OUTPUT.md]
+Usage: md2docx.sh INPUT.md [OUTPUT.docx]
 
-Converts a DOCX file to Markdown via pandoc. If OUTPUT.md is omitted,
-the Markdown file is written next to the input using the same basename.
+Converts a Markdown file to DOCX via pandoc. If OUTPUT.docx is omitted,
+the DOCX file is written next to the input using the same basename.
+By default, the DOCX uses Arial as the main font.
 EOF
 }
 
@@ -18,6 +19,8 @@ fi
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOCAL_PANDOC="$ROOT_DIR/.pandoc_local/bin/pandoc"
 DEFAULT_EXTERNAL_PANDOC="/mnt/c/BI core XP/.pandoc_local/bin/pandoc"
+DOCX_MAINFONT="${DOCX_MAINFONT:-Arial}"
+REFERENCE_DOC="$ROOT_DIR/scripts/pandoc/reference-arial.docx"
 
 if [[ -n "${PANDOC_BIN:-}" && -x "${PANDOC_BIN}" ]]; then
   PANDOC_BIN="${PANDOC_BIN}"
@@ -42,25 +45,21 @@ if [[ $# -eq 2 ]]; then
   output=$2
 else
   base=${input%.*}
-  output="${base}.md"
+  output="${base}.docx"
 fi
 
 mkdir -p "$(dirname "$output")"
 
 pandoc_args=(
-  --from=docx
-  --to=gfm
-  --wrap=preserve
-  --markdown-headings=setext
+  --from=gfm
+  --to=docx
+  --variable "mainfont=$DOCX_MAINFONT"
+  --resource-path="$(dirname "$input"):$ROOT_DIR"
   --output="$output"
 )
 
-# Optional: extract embedded images/media from the DOCX into a folder.
-# Example:
-#   DOCX_EXTRACT_MEDIA=docs/media ./scripts/docx2md.sh input/spec.docx docs/spec.md
-if [[ -n "${DOCX_EXTRACT_MEDIA:-}" ]]; then
-  mkdir -p "$DOCX_EXTRACT_MEDIA"
-  pandoc_args+=(--extract-media="$DOCX_EXTRACT_MEDIA")
+if [[ -f "$REFERENCE_DOC" ]]; then
+  pandoc_args+=(--reference-doc="$REFERENCE_DOC")
 fi
 
 "$PANDOC_BIN" "$input" "${pandoc_args[@]}"
