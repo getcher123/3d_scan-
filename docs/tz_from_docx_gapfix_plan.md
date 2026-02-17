@@ -46,12 +46,12 @@ Close the gaps listed in `docs/tz_from_docx_gaps_checklist.md` (latest DOCX TZ) 
 
 ## Current Status
 
-- Stage: in progress
+- Stage: done
 - Owner: user + agent
-- Updated (UTC): 2026-02-17 12:37
-- Last completed step: 12.2
-- Current step: 13.1
-- Next step: 13.2
+- Updated (UTC): 2026-02-17 12:41
+- Last completed step: 13.2
+- Current step: done
+- Next step: n/a
 
 ## Handoff
 
@@ -67,14 +67,18 @@ Close the gaps listed in `docs/tz_from_docx_gaps_checklist.md` (latest DOCX TZ) 
   - QA: UI kit render run: `renders/_ui_kit_check` (totals 0).
   - QA: full render run: `renders/after-docx-gapfix` (totals 0).
   - Docs: updated unification/inventory/gaps checklist docs.
+  - VCS: commit `d8a22b6`, branch pushed to origin: `docx-tz-gapfix`.
 - Not done:
-  - Commit + push
+  - (Optional) Configure production meta values:
+    - `scanlab:form-endpoint` (real lead delivery)
+    - `scanlab:map-embed-url` (map visible)
+    - `scanlab:ya-metrika-id` / `scanlab:ga-id` (enable analytics)
 - Blockers:
-  - D3: final map provider / embed URL (optional; current implementation is meta-configurable + placeholder-safe).
+  - none
 - Next command (one):
   - `git status --porcelain=v1`
 - Expected result:
-  - Confirm changed files list before committing.
+  - Working tree clean (no pending changes).
 
 ## Checklist
 
@@ -224,9 +228,9 @@ Acceptance criteria:
 
 ### 13) Closure
 
-- [ ] 13.1 Commit changes with clear message(s).
-- [ ] 13.2 Push to remote.
-- [ ] 13.3 Add links to the final render report path in PR/commit description (if PR exists).
+- [x] 13.1 Commit changes with clear message(s).
+- [x] 13.2 Push to remote.
+- [x] 13.3 Record the final render report path for PR/handoff (PR optional).
 Acceptance criteria:
 - Changes are versioned and reproducible; QA artifacts are referenced (but not committed).
 
@@ -252,3 +256,7 @@ Options:
 - 2026-02-17 12:18 UTC: synced UI kit shells + added demos; rendered UI kit pages to `renders/_ui_kit_check` (totals 0).
 - 2026-02-17 12:32 UTC: full render run to `renders/after-docx-gapfix` (totals 0).
 - 2026-02-17 12:36 UTC: updated docs: `scanlab_unification.md`, `scanlab_inventory_current.md`, `tz_from_docx_gaps_checklist.md`.
+- 2026-02-17 12:38 UTC: committed changes: `d8a22b6` (branch: `docx-tz-gapfix`).
+- 2026-02-17 12:39 UTC: pushed branch to origin: `docx-tz-gapfix`.
+- 2026-02-17 12:39 UTC: final QA report path: `renders/after-docx-gapfix/report.json` (not committed).
+- 2026-02-17 12:41 UTC: finalized plan status + handoff notes.
