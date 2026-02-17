@@ -120,9 +120,109 @@ function initBeforeAfterSliders() {
   });
 }
 
+function getMetaContent(name) {
+  const el = qs(document, `meta[name="${name}"]`);
+  return el && typeof el.content === "string" ? el.content.trim() : "";
+}
+
+function initMapEmbeds() {
+  const embedUrl = getMetaContent("scanlab:map-embed-url");
+  if (!embedUrl) return;
+
+  qsa(document, "[data-map]").forEach((root) => {
+    const iframe = qs(root, "[data-map-iframe]");
+    const placeholder = qs(root, "[data-map-placeholder]");
+    if (!iframe) return;
+
+    iframe.setAttribute("src", embedUrl);
+    iframe.classList.remove("hidden");
+    placeholder && placeholder.classList.add("hidden");
+  });
+}
+
+function initLeadForms() {
+  const endpoint = getMetaContent("scanlab:form-endpoint");
+
+  qsa(document, "[data-lead-form]").forEach((form) => {
+    const scope = form.closest("[data-form-scope]") || form.parentElement || document;
+    const views = qsa(scope, "[data-form-view]");
+    const submitBtn = qs(form, 'button[type="submit"]');
+
+    const setView = (name) => {
+      views.forEach((v) => {
+        const active = v.getAttribute("data-form-view") === name;
+        v.classList.toggle("hidden", !active);
+        v.classList.toggle("is-active", active);
+      });
+    };
+
+    qsa(scope, "[data-form-reset]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        form.reset();
+        setView("form");
+      });
+    });
+
+    setView("form");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const payload = {
+        name: String(data.get("name") || "").trim(),
+        contact: String(data.get("contact") || "").trim(),
+        service: String(data.get("service") || "").trim(),
+        details: String(data.get("details") || "").trim(),
+        page: String(window.location && window.location.href ? window.location.href : ""),
+        ts: new Date().toISOString(),
+      };
+
+      if (submitBtn) submitBtn.disabled = true;
+      form.setAttribute("aria-busy", "true");
+
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15_000);
+
+        let ok = true;
+        if (endpoint) {
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(payload),
+            signal: controller.signal,
+          });
+          ok = !!res && res.ok;
+        } else {
+          // Stub mode: keep UX consistent without delivery.
+          await new Promise((r) => setTimeout(r, 500));
+        }
+
+        clearTimeout(timeout);
+
+        if (!ok) {
+          setView("error");
+          return;
+        }
+        setView("success");
+      } catch {
+        setView("error");
+      } finally {
+        form.removeAttribute("aria-busy");
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initActiveNav();
   initPortfolioFilters();
   initBeforeAfterSliders();
+  initMapEmbeds();
+  initLeadForms();
 });

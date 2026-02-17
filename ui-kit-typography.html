@@ -3,6 +3,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>UI Kit: Типографика и Цвета</title>
+<meta content="UI kit SCAN.LAB: типографика, палитра и базовые компоненты." name="description"/>
+<meta name="scanlab:ya-metrika-id" content=""/>
+<meta name="scanlab:ga-id" content=""/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="assets/tailwind-config.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
@@ -10,10 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/site.css"/>
+<script src="assets/analytics.js" defer></script>
 </head>
 <body class="bg-background-dark text-white font-body selection:bg-primary selection:text-white antialiased">
 <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
-<div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
 <a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
 <div class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]">
 <span class="material-symbols-outlined text-primary">deployed_code</span>
@@ -26,11 +30,12 @@
 <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
 <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
 </nav>
-<div class="flex items-center gap-3">
-<a href="contacts.html#contact-form" class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex">Рассчитать стоимость</a>
-<button data-menu-button type="button" class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden" aria-label="Открыть меню" aria-expanded="false">
-<span class="material-icons-round">menu</span>
-</button>
+<div class="flex items-center gap-2">
+<a href="tel:+70000000000" class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface hidden lg:inline-flex" aria-label="Позвонить: +7 (000) 000-00-00"><span class="material-icons text-lg">phone_in_talk</span></a>
+<a href="mailto:hello@scanlab.example" class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface hidden lg:inline-flex" aria-label="Написать на hello@scanlab.example"><span class="material-icons text-lg">mark_email_unread</span></a>
+<a href="https://t.me/scanlab_support" class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex"><span class="material-icons text-sm">send</span>Написать в Telegram</a>
+<a href="contacts.html#contact-form" class="ui-btn ui-btn--secondary ui-btn--sm hidden xl:inline-flex">Рассчитать стоимость</a>
+<button data-menu-button type="button" class="ui-icon-btn ui-icon-btn--md ui-icon-btn--square ui-icon-btn--surface md:hidden" aria-label="Открыть меню" aria-expanded="false"><span class="material-icons-round">menu</span></button>
 </div>
 </div>
 <div data-menu class="hidden md:hidden border-t border-white/10">
@@ -39,7 +44,12 @@
 <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
 <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
 <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
-<a href="contacts.html#contact-form" class="ui-btn ui-btn--primary ui-btn--sm mt-2">Рассчитать стоимость</a>
+<a href="https://t.me/scanlab_support" class="ui-btn ui-btn--primary ui-btn--sm mt-2"><span class="material-icons text-sm">send</span>Написать в Telegram</a>
+<a href="contacts.html#contact-form" class="ui-btn ui-btn--secondary ui-btn--sm">Рассчитать стоимость</a>
+<div class="mt-3 pt-3 border-t border-white/10 space-y-2 text-xs text-slate-400">
+<a class="ui-link inline-flex items-center gap-2" href="tel:+70000000000"><span class="material-icons-round text-base">phone_in_talk</span>+7 (000) 000-00-00</a>
+<a class="ui-link inline-flex items-center gap-2" href="mailto:hello@scanlab.example"><span class="material-icons-round text-base">mail</span>hello@scanlab.example</a>
+</div>
 </nav>
 </div>
 </header>
@@ -291,15 +301,15 @@ Upload
 <a class="ui-link" href="portfolio.html">Портфолио</a>
 <a class="ui-link" href="contacts.html">Контакты</a>
 </nav>
-<div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+<div class="flex flex-col items-center md:items-end gap-3">
 <div class="flex items-center gap-3">
-<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="https://t.me/scanlab_support" aria-label="Telegram">
-<span class="material-icons text-lg">send</span>
-</a>
-<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="mailto:hello@scanlab.example" aria-label="Email">
-<span class="material-icons text-lg">mark_email_unread</span>
-</a>
+<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="https://t.me/scanlab_support" aria-label="Telegram"><span class="material-icons text-lg">send</span></a>
+<a class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid" href="mailto:hello@scanlab.example" aria-label="Email"><span class="material-icons text-lg">mark_email_unread</span></a>
 </div>
+<nav class="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-2 text-xs text-slate-500" aria-label="Юридическая информация">
+<a class="ui-link" href="privacy.html">Политика конфиденциальности</a>
+<a class="ui-link" href="offer.html">Публичная оферта</a>
+</nav>
 <p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
 </div>
 </div>

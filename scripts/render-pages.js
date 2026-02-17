@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs/promises");
 const fsSync = require("fs");
 const http = require("http");
+const { pathToFileURL } = require("url");
 
 let chromium;
 try {
@@ -36,6 +37,7 @@ function parseArgs(argv) {
     fullPage: true,
     failOnWarn: false,
     ignoreTailwindCdnWarning: false,
+    ignoreExternalRequestFailures: false,
   };
   const rest = [...argv];
   while (rest.length) {
@@ -75,6 +77,10 @@ function parseArgs(argv) {
     }
     if (a === "--ignore-tailwind-cdn-warning") {
       args.ignoreTailwindCdnWarning = true;
+      continue;
+    }
+    if (a === "--ignore-external-request-failures") {
+      args.ignoreExternalRequestFailures = true;
       continue;
     }
     if (a.startsWith("--")) continue;
@@ -189,6 +195,22 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const rootDir = process.cwd();
 
+  // In WSL + NTFS setups, TEMP/TMP may point to a Windows path that isn't writable
+  // by the current user/sandbox. Playwright needs a writable tmp dir for artifacts.
+  const tmpCandidates = [path.resolve(rootDir, ".tmp/playwright-tmp"), "/tmp"];
+  for (const dir of tmpCandidates) {
+    try {
+      fsSync.mkdirSync(dir, { recursive: true });
+      fsSync.accessSync(dir, fsSync.constants.W_OK);
+      process.env.TMPDIR = dir;
+      process.env.TEMP = dir;
+      process.env.TMP = dir;
+      break;
+    } catch {
+      // keep trying
+    }
+  }
+
   // WSL environments may miss shared libs required by Chromium.
   // Prefer local .tmp/playwright-libs if present, otherwise reuse Informika's bundle.
   const localLibDir = path.resolve(rootDir, ".tmp/playwright-libs/usr/lib/x86_64-linux-gnu");
@@ -212,18 +234,43 @@ async function main() {
     process.exit(1);
   }
 
-  const { server, baseUrl } = await startStaticServer(rootDir);
+  const IGNORE_EXTERNAL_HOSTS = new Set(["cdn.tailwindcss.com", "fonts.googleapis.com", "fonts.gstatic.com"]);
+
+  let server = null;
+  let baseUrl = null;
+  let baseMode = "http";
+  try {
+    ({ server, baseUrl } = await startStaticServer(rootDir));
+  } catch (e) {
+    // Some sandboxed environments disallow listening on 127.0.0.1. Fall back to file://.
+    const code = e && typeof e === "object" ? e.code : null;
+    if (code === "EPERM" || code === "EACCES") {
+      baseMode = "file";
+      baseUrl = pathToFileURL(rootDir).toString();
+      console.warn(
+        `Static server failed to bind (code=${code}). Falling back to file:// rendering. Pass --ignore-external-request-failures to avoid failing on CDN requests in offline environments.`,
+      );
+    } else {
+      throw e;
+    }
+  }
 
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
   } catch (e) {
-    server.close();
+    server && server.close();
     throw e;
   }
 
   const context = await browser.newContext();
-  const report = { generatedAt: new Date().toISOString(), baseUrl, breakpoints: args.breakpoints, pages: [] };
+  const report = {
+    generatedAt: new Date().toISOString(),
+    baseUrl,
+    baseMode,
+    breakpoints: args.breakpoints,
+    pages: [],
+  };
 
   for (const abs of htmlFiles) {
     const rel = path.relative(rootDir, abs).replace(/\\/g, "/");
@@ -250,9 +297,10 @@ async function main() {
       const page = await context.newPage();
       await page.setViewportSize({ width, height: 900 });
 
+      const pageUrl = baseMode === "file" ? pathToFileURL(abs).toString() : `${baseUrl}/${rel}`;
       const vp = {
         width,
-        url: `${baseUrl}/${rel}`,
+        url: pageUrl,
         finalUrl: null,
         counts: { consoleErrors: 0, consoleWarnings: 0, pageErrors: 0, requestFailures: 0, httpErrors: 0 },
       };
@@ -279,14 +327,27 @@ async function main() {
         vp.counts.pageErrors += 1;
       });
       page.on("requestfailed", (req) => {
+        let ignored = false;
+        if (args.ignoreExternalRequestFailures) {
+          try {
+            const u = new URL(req.url());
+            const isLocalHttp = baseMode === "http" && u.hostname === "127.0.0.1";
+            const isLocalFile = baseMode === "file" && u.protocol === "file:";
+            const isExternal = !isLocalHttp && !isLocalFile;
+            ignored = isExternal && IGNORE_EXTERNAL_HOSTS.has(u.hostname);
+          } catch {
+            ignored = false;
+          }
+        }
         push({
           kind: "requestfailed",
           url: req.url(),
           resourceType: req.resourceType(),
           failure: req.failure(),
           method: req.method(),
+          ignored,
         });
-        vp.counts.requestFailures += 1;
+        if (!ignored) vp.counts.requestFailures += 1;
       });
       page.on("response", (res) => {
         const status = res.status();
@@ -342,7 +403,7 @@ async function main() {
   }
 
   await browser.close();
-  server.close();
+  server && server.close();
 
   const reportPath = path.join(outRoot, "report.json");
   await fs.writeFile(reportPath, JSON.stringify(report, null, 2) + "\n", "utf8");

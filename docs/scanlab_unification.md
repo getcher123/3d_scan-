@@ -48,6 +48,11 @@ Tailwind-классы используют `rgb(var(--...-rgb) / <alpha-value>)`
 - Tailwind CDN
 - `assets/tailwind-config.js`
 - шрифты (Space Grotesk + Inter + Roboto Mono)
+- `meta name="description"` (странично-специфичное)
+- (опционально) `meta` конфиги и скрипт аналитики:
+  - `<meta name="scanlab:ya-metrika-id" content="" />`
+  - `<meta name="scanlab:ga-id" content="" />`
+  - `<script src="assets/analytics.js" defer></script>`
 - `assets/site.css`
 - `<body>`:
 - `class="bg-background-dark text-white font-body antialiased selection:bg-primary selection:text-white"`
@@ -69,13 +74,21 @@ Tailwind-классы используют `rgb(var(--...-rgb) / <alpha-value>)`
 - Кнопка бургер-меню: `[data-menu-button]` + `aria-expanded`
 - Контейнер мобильного меню: `[data-menu]` (по умолчанию `hidden`)
 - Навигационные ссылки: `.ui-nav-link` + `data-nav="services|process|portfolio|contacts"`
-- CTA “Рассчитать стоимость”: `.ui-btn ui-btn--primary ...` (ссылка `contacts.html#contact-form`)
+- Контакты (desktop):
+  - телефон: `a[href^="tel:"]` как `.ui-icon-btn` (видим на `lg+`)
+  - email: `a[href^="mailto:"]` как `.ui-icon-btn` (видим на `lg+`)
+- CTA “Написать в Telegram”:
+  - `.ui-btn ui-btn--primary` (ссылка `https://t.me/scanlab_support`)
+- Secondary CTA “Рассчитать стоимость”:
+  - `.ui-btn ui-btn--secondary` (ссылка `contacts.html#contact-form`, видим на `xl+`)
 
 Контракт footer:
 
 - Фон: `bg-surface-card`
 - Центр: ссылки на `services.html`, `process.html`, `portfolio.html`, `contacts.html`
-- Справа: контактные иконки (Telegram + Email) и копирайт
+- Справа: контактные иконки (Telegram + Email), юридические ссылки и копирайт:
+  - `privacy.html` (Политика конфиденциальности)
+  - `offer.html` (Публичная оферта)
 
 ## 7) JS: единый интерактив
 
@@ -92,6 +105,23 @@ Tailwind-классы используют `rgb(var(--...-rgb) / <alpha-value>)`
 - Before/After slider:
 - контейнер `[data-ba]`, слои `[data-ba-before]`, ручка `[data-ba-handle]`
 - CSS для слайдера: `assets/site.css` (`.js-ba`, `.js-ba-before`, `.js-ba-handle`)
+
+Дополнительно (meta-driven паттерны):
+
+- Map embed (опционально):
+  - meta: `<meta name="scanlab:map-embed-url" content="" />`
+  - разметка: `[data-map]` + `[data-map-iframe]` (скрыт до конфигурации) + `[data-map-placeholder]`
+  - поведение: `initMapEmbeds()` подставляет `src` и переключает видимость.
+- Lead forms (опционально, поддерживает stub mode):
+  - meta: `<meta name="scanlab:form-endpoint" content="" />` (если пусто, форма “успешна” в stub режиме)
+  - разметка: контейнер `[data-form-scope]` + формы `[data-lead-form]` + вьюхи `[data-form-view="form|success|error"]` + кнопки `[data-form-reset]`
+  - поведение: `initLeadForms()` валидирует, блокирует submit, отправляет (если endpoint задан), переключает состояния.
+
+Аналитика (опционально):
+
+- Скрипт: `assets/analytics.js` (без inline скриптов в HTML).
+- Конфиг: `scanlab:ya-metrika-id`, `scanlab:ga-id` через `<meta>`.
+- Безопасность: не грузится на `localhost`, `127.0.0.1`, `file://` (чтобы QA рендеры были стабильны).
 
 ## 8) Правила (ревизия стилей)
 
@@ -162,6 +192,7 @@ JS
 | `case.html` | OK | OK | OK | OK | OK | OK |
 | `contacts.html` | OK | OK | OK | OK | OK | OK |
 | `index.html` | OK | OK | OK | OK | OK | OK |
+| `offer.html` | OK | OK | OK | OK | OK | OK |
 | `portfolio.html` | OK | OK | OK | OK | OK | OK |
 | `privacy.html` | OK | OK | OK | OK | OK | OK |
 | `process.html` | OK | OK | OK | OK | OK | OK |

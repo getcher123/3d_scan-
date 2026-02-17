@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Контакты | SCAN.LAB</title>
+    <meta
+      name="description"
+      content="Свяжитесь с SCAN.LAB: Telegram, телефон и email. Отправьте заявку на расчет 3D-сканирования или 3D‑печати и получите ответ в течение 24 часов."
+    />
+    <meta name="scanlab:ya-metrika-id" content="" />
+    <meta name="scanlab:ga-id" content="" />
+    <meta name="scanlab:form-endpoint" content="" />
+    <meta name="scanlab:map-embed-url" content="" />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="assets/tailwind-config.js"></script>
@@ -22,11 +30,12 @@
     />
 
     <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/analytics.js" defer></script>
   </head>
 
   <body data-page="contacts" class="bg-background-dark text-white font-body antialiased selection:bg-primary selection:text-white">
     <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 glass-nav">
-      <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="max-w-[1600px] mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <a href="index.html" class="flex items-center gap-3 group" aria-label="SCAN.LAB">
           <div
             class="w-9 h-9 rounded-lg bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.15)]"
@@ -45,10 +54,31 @@
           <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
         </nav>
 
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-2">
+          <a
+            href="tel:+70000000000"
+            class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface hidden lg:inline-flex"
+            aria-label="Позвонить: +7 (000) 000-00-00"
+          >
+            <span class="material-icons text-lg">phone_in_talk</span>
+          </a>
+          <a
+            href="mailto:hello@scanlab.example"
+            class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface hidden lg:inline-flex"
+            aria-label="Написать на hello@scanlab.example"
+          >
+            <span class="material-icons text-lg">mark_email_unread</span>
+          </a>
+          <a
+            href="https://t.me/scanlab_support"
+            class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex"
+          >
+            <span class="material-icons text-sm">send</span>
+            Написать в Telegram
+          </a>
           <a
             href="contacts.html#contact-form"
-            class="ui-btn ui-btn--primary ui-btn--sm hidden sm:inline-flex"
+            class="ui-btn ui-btn--secondary ui-btn--sm hidden xl:inline-flex"
           >
             Рассчитать стоимость
           </a>
@@ -65,17 +95,33 @@
       </div>
 
       <div data-menu class="hidden md:hidden border-t border-white/10">
-        <nav class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300" aria-label="Мобильная навигация">
+        <nav
+          class="max-w-[1600px] mx-auto px-6 py-4 flex flex-col gap-3 text-sm font-medium text-slate-300"
+          aria-label="Мобильная навигация"
+        >
           <a data-nav="services" href="services.html" class="ui-nav-link">Услуги</a>
           <a data-nav="process" href="process.html" class="ui-nav-link">Процесс</a>
           <a data-nav="portfolio" href="portfolio.html" class="ui-nav-link">Портфолио</a>
           <a data-nav="contacts" href="contacts.html" class="ui-nav-link">Контакты</a>
-          <a
-            href="contacts.html#contact-form"
-            class="ui-btn ui-btn--primary ui-btn--sm mt-2"
-          >
+
+          <a href="https://t.me/scanlab_support" class="ui-btn ui-btn--primary ui-btn--sm mt-2">
+            <span class="material-icons text-sm">send</span>
+            Написать в Telegram
+          </a>
+          <a href="contacts.html#contact-form" class="ui-btn ui-btn--secondary ui-btn--sm">
             Рассчитать стоимость
           </a>
+
+          <div class="mt-3 pt-3 border-t border-white/10 space-y-2 text-xs text-slate-400">
+            <a class="ui-link inline-flex items-center gap-2" href="tel:+70000000000">
+              <span class="material-icons-round text-base">phone_in_talk</span>
+              +7 (000) 000-00-00
+            </a>
+            <a class="ui-link inline-flex items-center gap-2" href="mailto:hello@scanlab.example">
+              <span class="material-icons-round text-base">mail</span>
+              hello@scanlab.example
+            </a>
+          </div>
         </nav>
       </div>
     </header>
@@ -97,7 +143,7 @@
               </div>
 
               <div class="space-y-6">
-                <a class="flex items-start group" href="tel:+72345678900" aria-label="Позвонить">
+                <a class="flex items-start group" href="tel:+70000000000" aria-label="Позвонить">
                   <div
                     class="w-12 h-12 rounded-xl bg-surface-card border border-white/10 flex items-center justify-center mr-6 group-hover:bg-primary group-hover:border-primary transition-colors shadow-lg"
                   >
@@ -105,7 +151,7 @@
                   </div>
                   <div>
                     <span class="block text-xs text-slate-500 uppercase font-semibold tracking-wider mb-1">Телефон</span>
-                    <span class="text-xl text-white font-medium group-hover:text-primary transition-colors">+7 234 567 8900</span>
+                    <span class="text-xl text-white font-medium group-hover:text-primary transition-colors">+7 (000) 000-00-00</span>
                   </div>
                 </a>
 
@@ -134,32 +180,48 @@
                 </a>
               </div>
 
-              <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-surface-card h-[320px]">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="w-full h-full opacity-30 bg-mesh-grid mesh-overlay"></div>
-                </div>
-                <div class="absolute bottom-6 left-6">
-                  <div class="flex items-center gap-3 mb-1">
-                    <span class="material-icons text-primary">location_on</span>
-                    <p class="text-white font-bold text-lg">Штаб-квартира</p>
+              <div data-map class="relative rounded-2xl overflow-hidden border border-white/10 bg-surface-card h-[320px]">
+                <iframe
+                  data-map-iframe
+                  class="absolute inset-0 w-full h-full hidden"
+                  title="Карта SCAN.LAB"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                ></iframe>
+
+                <div data-map-placeholder class="absolute inset-0">
+                  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-full h-full opacity-30 bg-mesh-grid mesh-overlay"></div>
                   </div>
-                  <p class="text-slate-300 text-sm ml-9">Москва, инновационный район</p>
+                  <div class="absolute bottom-6 left-6">
+                    <div class="flex items-center gap-3 mb-1">
+                      <span class="material-icons text-primary">location_on</span>
+                      <p class="text-white font-bold text-lg">Штаб-квартира</p>
+                    </div>
+                    <p class="text-slate-300 text-sm ml-9">Москва, инновационный район</p>
+                    <p class="text-slate-500 text-xs ml-9 mt-2">
+                      Карта появится после настройки `scanlab:map-embed-url`.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div
+              data-form-scope
               id="contact-form"
               class="bg-surface-card border border-white/10 rounded-2xl p-8 lg:p-10 shadow-2xl relative"
             >
               <div class="absolute -top-1 -right-1 w-20 h-20 bg-primary/15 rounded-bl-full rounded-tr-lg pointer-events-none"></div>
 
-              <h2 class="font-display text-2xl font-bold text-white mb-2">Обсудите ваш проект с инженером</h2>
-              <p class="text-slate-400 mb-8 text-sm">Заполните форму, и мы подготовим предварительную оценку.</p>
+              <div data-form-view="form">
+                <h2 class="font-display text-2xl font-bold text-white mb-2">Обсудите ваш проект с инженером</h2>
+                <p class="text-slate-400 mb-8 text-sm">Заполните форму, и мы подготовим предварительную оценку.</p>
 
-              <form class="space-y-6">
+                <form data-lead-form class="space-y-6">
                 <div>
                   <label class="block text-sm font-medium text-slate-300 mb-2" for="name">Имя</label>
                   <input
@@ -168,18 +230,22 @@
                     type="text"
                     placeholder="Как к вам обращаться"
                     aria-label="Имя"
+                    required
+                    autocomplete="name"
                     class="ui-field"
                   />
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-slate-300 mb-2" for="contact">Email или телефон</label>
+                  <label class="block text-sm font-medium text-slate-300 mb-2" for="contact">Телефон / мессенджер</label>
                   <input
                     id="contact"
                     name="contact"
                     type="text"
-                    placeholder="Для связи с вами"
-                    aria-label="Контакт"
+                    placeholder="+7… или @username"
+                    aria-label="Телефон или мессенджер"
+                    required
+                    autocomplete="tel"
                     class="ui-field"
                   />
                 </div>
@@ -230,7 +296,50 @@
                     <a class="ui-inline-link" href="privacy.html">политикой конфиденциальности</a>.
                   </p>
                 </div>
-              </form>
+                </form>
+              </div>
+
+              <div data-form-view="success" class="hidden">
+                <div
+                  class="w-12 h-12 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center shadow-[0_0_25px_rgba(0,102,255,0.22)] mb-6"
+                >
+                  <span class="material-icons text-primary">task_alt</span>
+                </div>
+                <h2 class="font-display text-2xl font-bold text-white mb-2">Спасибо за заявку</h2>
+                <p class="text-slate-300 mb-8 text-sm">
+                  Мы получили запрос и свяжемся с вами в ближайшее время. Если нужно быстрее, напишите в Telegram.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a class="ui-btn ui-btn--primary ui-btn--md" href="https://t.me/scanlab_support">
+                    <span class="material-icons text-sm">send</span>
+                    Написать в Telegram
+                  </a>
+                  <button data-form-reset type="button" class="ui-btn ui-btn--secondary ui-btn--md">
+                    Отправить еще раз
+                  </button>
+                </div>
+              </div>
+
+              <div data-form-view="error" class="hidden">
+                <div
+                  class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center shadow-[0_0_25px_rgba(239,68,68,0.18)] mb-6"
+                >
+                  <span class="material-icons text-red-300">error_outline</span>
+                </div>
+                <h2 class="font-display text-2xl font-bold text-white mb-2">Не удалось отправить</h2>
+                <p class="text-slate-300 mb-8 text-sm">
+                  Попробуйте еще раз или напишите в Telegram, чтобы обсудить проект напрямую.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                  <a class="ui-btn ui-btn--primary ui-btn--md" href="https://t.me/scanlab_support">
+                    <span class="material-icons text-sm">send</span>
+                    Написать в Telegram
+                  </a>
+                  <button data-form-reset type="button" class="ui-btn ui-btn--secondary ui-btn--md">
+                    Попробовать снова
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -278,7 +387,7 @@
           <a class="ui-link" href="contacts.html">Контакты</a>
         </nav>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-4">
+        <div class="flex flex-col items-center md:items-end gap-3">
           <div class="flex items-center gap-3">
             <a
               class="ui-icon-btn ui-icon-btn--md ui-icon-btn--circle ui-icon-btn--surface ui-icon-btn--solid"
@@ -295,6 +404,12 @@
               <span class="material-icons text-lg">mark_email_unread</span>
             </a>
           </div>
+
+          <nav class="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-2 text-xs text-slate-500" aria-label="Юридическая информация">
+            <a class="ui-link" href="privacy.html">Политика конфиденциальности</a>
+            <a class="ui-link" href="offer.html">Публичная оферта</a>
+          </nav>
+
           <p class="text-slate-500 text-xs sm:text-sm">© 2026 SCAN.LAB. Все права защищены.</p>
         </div>
       </div>

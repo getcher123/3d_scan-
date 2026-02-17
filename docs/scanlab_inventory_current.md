@@ -1,6 +1,6 @@
 # SCAN.LAB: Инвентаризация текущих страниц и соответствие ТЗ (актуальное состояние)
 
-Дата: 2026-02-16  
+Дата: 2026-02-17<br>
 Репозиторий: `/mnt/c/3d_scan`
 
 ## 1) Канонические страницы (корень репозитория)
@@ -13,9 +13,10 @@
 - `contacts.html` (Контакты)
 - `advantages-faq.html` (Преимущества + FAQ)
 - `privacy.html` (Политика конфиденциальности)
+- `offer.html` (Публичная оферта)
 - `ui-kit-typography.html` (UI kit: типографика/палитра/базовые интерактивы)
 - `ui-kit-components.html` (UI kit: навигация/сетки/таблица)
-- `ui-kit-blocks.html` (UI kit: блоки услуг/процесс/FAQ/форма)
+- `ui-kit-blocks.html` (UI kit: блоки услуг/процесс/FAQ/лид-магнит/форма)
 
 Наследие прототипов: подпапки `3d_scan_*/*code.html` и `детали_проекта_(кейс)/code.html` оставлены как redirect-страницы на канонические HTML в корне (см. `docs/scanlab_unification.md`).
 
@@ -29,10 +30,12 @@
 
 ### 3.1) `index.html` (Главная)
 
-- Sticky Header (glassmorphism): логотип, ссылки (Услуги/Процесс/Портфолио/Контакты), CTA “Рассчитать стоимость”, бургер-меню.
+- Sticky Header (glassmorphism): логотип, ссылки (Услуги/Процесс/Портфолио/Контакты), контакты (tel/mail), CTA “Написать в Telegram” + secondary “Рассчитать стоимость”, бургер-меню.
 - Hero: H1, УТП, 2 CTA, стат-плашки (точность/8K/проекты), hero-изображение.
 - “Услуги”: грид карточек (4 шт).
+- “О компании”: “С 2015 года”, сегменты, география, социальные доказательства (статы + логотипы как плейсхолдеры).
 - “Точность и эффективность”: карточки преимуществ (4 шт).
+- Лид-магнит: “Консультация и помощь с техническим заданием” + CTA в Telegram/контакты.
 - “Наш процесс”: таймлайн 7 шагов.
 - FAQ: аккордеон (`<details>`).
 - Footer: ссылки + контакты.
@@ -74,6 +77,7 @@
 - Sidebar параметров: заказчик/срок/точность/форматы + кнопка “Скачать спецификацию (PDF)”.
 - Before/After slider (pointer events) (`data-ba`).
 - “Технические детали” (оборудование/ПО) карточками.
+- “Материалы и выдача”: входные материалы от клиента + выдаваемые результаты/форматы.
 - Галерея результатов.
 - “Другие проекты” (карточки).
 - CTA “Обсудить в Telegram”.
@@ -82,12 +86,13 @@
 
 - Sticky Header / Footer (единые).
 - Карточки контактов (телефон/email/telegram) с `href` и `aria-label`.
-- Блок “карта” (пока визуальная заглушка, без embed).
-- Форма:
-- `label` + `placeholder` + `aria-label` на полях
-- `select` “Тип услуги”
-- `button type="submit"`
-- ссылка на `privacy.html`
+- Блок “карта”:
+  - разметка `data-map` + iframe `data-map-iframe` (скрыт по умолчанию) + placeholder `data-map-placeholder`
+  - embed URL задается через `<meta name="scanlab:map-embed-url" content="" />` (если пусто, остается placeholder).
+- Форма лида:
+  - разметка `data-form-scope` + `data-form-view="form|success|error"` + `data-lead-form` + `data-form-reset`
+  - success/error состояния с Telegram fallback CTA
+  - endpoint задается через `<meta name="scanlab:form-endpoint" content="" />` (если пусто, работает stub-режим с success UX).
 
 ### 3.7) `advantages-faq.html`
 
@@ -116,10 +121,12 @@
 | Многостраничность + единый Sticky Header | OK | все канонические страницы | Единый header с бургером и активным состоянием ссылки. |
 | Sticky + glassmorphism при скролле | OK | все канонические страницы | `.glass-nav` (blur + прозрачность). |
 | CTA “Рассчитать стоимость” | OK | header | Ведет на `contacts.html#contact-form`. |
+| CTA “Написать в Telegram” + контакты в header | OK | все канонические страницы | Primary CTA + быстрые контакты (tel/mail), в моб. меню дублируются. |
 | Главная: Hero + услуги + процесс + FAQ | OK | `index.html` | Видео не используется (изображение). |
 | Портфолио: Mixed Grid + фильтры без перезагрузки | OK | `portfolio.html` | Фильтрация реализована через классы + `hidden`. |
 | Кейс: Before/After slider | OK | `case.html`, превью в `portfolio.html` | Реализовано через pointer events. |
-| Контакты: форма + карта + прямые контакты | PARTIAL | `contacts.html` | Карта пока как заглушка без embed. |
+| Контакты: форма + карта + прямые контакты | PARTIAL | `contacts.html` | Карта/endpoint конфигурируются через `<meta>`, по умолчанию безопасные заглушки. |
+| Footer: копирайт + Privacy + Offer | OK | все канонические страницы | `privacy.html` + `offer.html`. |
 | Иконки только SVG | MISSING | — | Сейчас используются Material Icons (икон-шрифты/символы). |
 | Lazy loading + WebP/AVIF | PARTIAL | `index.html`, `services.html` | Форматы/ленивая загрузка не унифицированы (изображения в основном внешние). |
 
@@ -158,9 +165,8 @@
 Последняя проверка (с игнором предупреждения Tailwind CDN):
 
 ```bash
-node scripts/render-pages.js --out renders/scanlab-check --ignore-tailwind-cdn-warning --fail-on-warn
+node scripts/render-pages.js --out renders/after-docx-gapfix --ignore-tailwind-cdn-warning --fail-on-warn
 ```
 
 Результат: `consoleErrors=0`, `consoleWarnings=0`, `pageErrors=0`, `requestFailures=0`, `httpErrors=0`.  
-Отчет: `renders/scanlab-check/report.json`.
-
+Отчет: `renders/after-docx-gapfix/report.json`.
